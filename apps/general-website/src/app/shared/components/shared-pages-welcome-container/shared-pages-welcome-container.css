@@ -1,0 +1,22 @@
+.page-welcome-container {
+  background-size: cover;
+  /* background-color: var(--primary-color) !important;
+  color: #fff; */
+  min-height: 412px;
+  margin-top: -115px;
+  padding-bottom: 2rem;
+}
+
+.page-intro-name {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.routing-paths a {
+  cursor: pointer;
+  font-size: 1.4rem !important;
+}
+
+.current-page {
+  color: var(--primary-color) !important;
+}

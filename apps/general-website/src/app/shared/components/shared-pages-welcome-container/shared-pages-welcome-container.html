@@ -1,0 +1,24 @@
+<div class="container-fluid page-welcome-container pt-5">
+  <div class="container pt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-intro-name pt-5 slideOutRight">
+          <h2 class="animated slideInRight welcome-page-header">
+            {{ pageName }}
+          </h2>
+          <div class="routing-paths">
+            <a
+              ><span (click)="changeRoute($event, '/')"> Home /</span>
+              <span
+                class="current-page"
+                (click)="changeRoute($event, currentPath)"
+              >
+                {{ currentPathName }}</span
+              ></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
