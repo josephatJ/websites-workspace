@@ -15,6 +15,6 @@ export class SharedPagesWelcomeContainer {
 
   changeRoute(event: Event, path: string): void {
     event.stopPropagation();
-    this.router.navigate([path]);
+    if (path && path.length > 0) this.router.navigate([path]);
   }
 }
