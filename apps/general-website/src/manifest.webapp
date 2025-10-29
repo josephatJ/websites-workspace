@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "name": "Website",
+  "description": "Website",
+  "appType": "APP",
+  "launch_path": "index.html",
+  "developer": {
+    "name": "Josephat Julius Mwakyusa",
+    "email": "josephatjulius24@gmail.com"
+  },
+  "default_locale": "en",
+  "href": "../../../"
+}

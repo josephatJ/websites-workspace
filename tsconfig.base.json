@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@websites-workspace/ngx-http-client-service": [
+        "libs/ngx-http-client-service/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

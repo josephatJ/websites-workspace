@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'primeicons/primeicons.css';
+@use 'bootstrap/scss/bootstrap' as *;
+
+:root {
+  --primary-color: #d24d27;
+  --fainted-border-color: #cbd5e140;
+  --while-color: #fff;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba($color: #ffffff, $alpha: 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prevent-entry-overlay {
+  position: absolute;
+  z-index: 100;
+  background: rgba($color: #ffffff, $alpha: 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

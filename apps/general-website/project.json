@@ -16,6 +16,8 @@
         "tsConfig": "apps/general-website/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
+          "apps/general-website/src/assets",
+          "apps/general-website/src/manifest.webapp",
           {
             "glob": "**/*",
             "input": "apps/general-website/public"
@@ -28,13 +30,13 @@
           "budgets": [
             {
               "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
+              "maximumWarning": "2mb",
+              "maximumError": "4mb"
             },
             {
               "type": "anyComponentStyle",
-              "maximumWarning": "4kb",
-              "maximumError": "8kb"
+              "maximumWarning": "400kb",
+              "maximumError": "800kb"
             }
           ],
           "outputHashing": "all"
@@ -58,7 +60,10 @@
           "buildTarget": "general-website:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/general-website/proxy.config.json"
+      }
     },
     "extract-i18n": {
       "executor": "@angular/build:extract-i18n",

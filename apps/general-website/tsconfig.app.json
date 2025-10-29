@@ -4,7 +4,10 @@
     "outDir": "../../dist/out-tsc",
     "types": []
   },
-  "include": ["src/**/*.ts"],
+  "include": [
+    "src/**/*.ts",
+    "../../libs/ngx-http-client-service/src/lib/ngx-http-client-service/manifest.model.ts"
+  ],
   "exclude": [
     "jest.config.ts",
     "src/test-setup.ts",
