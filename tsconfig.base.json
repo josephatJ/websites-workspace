@@ -17,7 +17,8 @@
     "paths": {
       "@websites-workspace/ngx-http-client-service": [
         "libs/ngx-http-client-service/src/index.ts"
-      ]
+      ],
+      "@websites-workspace/ngx-form": ["libs/ngx-form/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

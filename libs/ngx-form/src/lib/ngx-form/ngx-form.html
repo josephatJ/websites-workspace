@@ -1,0 +1,176 @@
+<form #form="ngForm">
+  <div class="row">
+    @for (field of formFields; track $index) {
+    <ng-container>
+      <div
+        class="flex flex-col gap-2 mb-2"
+        [class]="form?.controls?.[field.id]?.invalid ? 'invalid-field' : ''"
+        [class]="responsivenessClass"
+      >
+        <label
+          style="margin-bottom: 4px; font-weight: 600"
+          [ngStyle]="{
+            color:
+              form?.controls?.[field.id]?.invalid &&
+              form?.controls?.[field.id]?.touched
+                ? 'red'
+                : ''
+          }"
+          for="{{ field?.id }}"
+          >{{ field?.label }} @if (field?.required) {
+          <span>*</span>
+          }
+        </label>
+        @if (field.type === 'TEXT' || field.type === 'REFERENCE') {
+        <input
+          pInputText
+          size="small"
+          [name]="field.id"
+          [id]="field.id"
+          [(ngModel)]="field.value"
+          (ngModelChange)="getDataValue($event, field)"
+          [disabled]="field?.disabled"
+          [required]="field?.required"
+          [placeholder]="field?.placeholder ? field?.placeholder: ''"
+          autocomplete="off"
+        />
+        } @if (field.type === 'PASSWORD') {
+        <input
+          pInputText
+          type="password"
+          size="small"
+          [name]="field.id"
+          [id]="field.id"
+          [(ngModel)]="field.value"
+          (ngModelChange)="getDataValue($event, field)"
+          [disabled]="field?.disabled"
+          [required]="field?.required"
+          [placeholder]="field?.placeholder ? field?.placeholder: ''"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,72}$"
+          autocomplete="off"
+        />
+        } @if (field.type === 'EMAIL') {
+        <input
+          pInputText
+          type="email"
+          size="small"
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+          [name]="field.id"
+          [id]="field.id"
+          #EMAIL="ngModel"
+          [(ngModel)]="field.value"
+          (ngModelChange)="getDataValue($event, field)"
+          [disabled]="field?.disabled"
+          [required]="field?.required"
+          [placeholder]="field?.placeholder ? field?.placeholder: ''"
+          autocomplete="off"
+        />
+        } @if (field.type === 'LONG_TEXT') {
+        <textarea
+          size="small"
+          [rows]="field.rows"
+          [cols]="field?.cols"
+          pTextarea
+          [name]="field.id"
+          [id]="field.id"
+          [(ngModel)]="field.value"
+          (ngModelChange)="getDataValue($event, field)"
+          [disabled]="field?.disabled"
+          [required]="field?.required"
+          [placeholder]="field?.placeholder ? field?.placeholder: ''"
+          autocomplete="off"
+        ></textarea>
+        } @if (field.type === 'INTEGER_POSITIVE' || field.type === 'NUMBER') {
+        <p-inputnumber
+          size="small"
+          [(ngModel)]="field.value"
+          [id]="field.id"
+          [name]="field.id"
+          mode="decimal"
+          [min]="field.min"
+          [max]="field.max"
+          [useGrouping]="false"
+          (ngModelChange)="getDataValue($event, field)"
+          [disabled]="field?.disabled"
+          [required]="field?.required"
+          [placeholder]="field?.placeholder ? field?.placeholder: ''"
+          autocomplete="off"
+        />
+        } @if (field.type === 'DATE') {
+        <p-datepicker
+          [showIcon]="true"
+          class="w-100 w-full"
+          [name]="field.id"
+          [(ngModel)]="field.value"
+          [minDate]="field.minDate"
+          [maxDate]="field.maxDate"
+          [readonlyInput]="true"
+          [(ngModel)]="field.value"
+          (ngModelChange)="getDataValue($event, field)"
+          [disabled]="field?.disabled"
+          [required]="field?.required"
+          [placeholder]="field?.placeholder ? field?.placeholder: ''"
+          autocomplete="off"
+        />
+        } @if (field.type === 'PHONE_NUMBER' && field.mask) {
+        <p-inputmask
+          [mask]="field.mask"
+          [name]="field.id"
+          [(ngModel)]="field.value"
+          (ngModelChange)="getDataValue($event, field)"
+          [placeholder]="field.placeholder"
+          [disabled]="field?.disabled"
+          [required]="field?.required"
+          [placeholder]="field?.placeholder ? field?.placeholder: ''"
+          autocomplete="off"
+        ></p-inputmask>
+        } @if (field.type === 'DROPDOWN') {
+        <p-select
+          [options]="field.options"
+          [name]="field.id"
+          [(ngModel)]="field.value"
+          [optionValue]="'code'"
+          (ngModelChange)="getDataValue($event, field)"
+          [filter]="true"
+          filterBy="label"
+          [showClear]="true"
+          class="w-full w-100"
+          [disabled]="field?.disabled"
+          [required]="field?.required"
+          [placeholder]="field?.placeholder ? field?.placeholder: ''"
+          autocomplete="off"
+        >
+          <ng-template #selectedItem let-selectedOption>
+            <div class="flex items-center gap-2">
+              <div>{{ selectedOption.label }}</div>
+            </div>
+          </ng-template>
+          <ng-template let-option #item>
+            <div class="flex items-center gap-2">
+              <div>{{ option.label ? option.label : option.name }}</div>
+            </div>
+          </ng-template>
+        </p-select>
+        } @if (form?.controls?.[field.id]?.invalid &&
+        form?.controls?.[field.id]?.touched) {
+        <small class="message-info-display"
+          >@if (!form?.controls?.[field.id]?.errors?.['pattern']) {
+          <span> {{ field.label }} is required. </span> } @if
+          (form?.controls?.[field.id]?.errors?.['pattern'] && field?.id ===
+          'PASSWORD') {
+          <span
+            >Password should be atleast 8 characters long, one lowercase
+            character, one uppercase character, one number, and one special
+            character.</span
+          >
+          } @if (form?.controls?.[field.id]?.errors?.['pattern'] && field?.id
+          === 'EMAIL') {
+          <span>Its is not a valid email.</span>
+          }</small
+        >
+        }
+      </div>
+    </ng-container>
+    }
+  </div>
+</form>

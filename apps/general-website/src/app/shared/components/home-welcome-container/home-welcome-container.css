@@ -1,3 +1,7 @@
 .home-welcome-container {
-  min-height: 500px;
+  min-height: 430px;
+}
+
+.border-left {
+  border-left: solid 1px #eee;
 }
