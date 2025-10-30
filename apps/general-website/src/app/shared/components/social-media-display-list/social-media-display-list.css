@@ -1,0 +1,10 @@
+.media-list-container {
+  color: #fff !important;
+  padding: 8px 16px;
+}
+
+.media-list-container i {
+  margin-right: 8px;
+  font-size: 24px;
+  cursor: pointer;
+}

@@ -1,1 +1,8 @@
-<p>social-media works!</p>
+<!-- <p>social-media works!</p> -->
+<!-- {{socialMedia() | json}} -->
+<div class="d-flex justify-content-end media-list-container">
+  <ng-container *ngFor="let media of socialMedia()">
+    <!-- <button pIconButton [icon]="'pi ' + media?.iconReference"></button> -->
+    <i class="pi {{media?.iconReference}}"></i>
+  </ng-container>
+</div>

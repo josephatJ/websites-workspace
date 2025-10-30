@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { MegaMenuModule } from 'primeng/megamenu';
@@ -18,8 +18,10 @@ export class TopNavMenuBar implements OnInit {
   items: MenuItem[] | undefined;
   private pagesStateService = inject(SharedPagesService);
   pages = this.pagesStateService.pages;
+  currentRoutePath = signal<string>('');
 
   ngOnInit(): void {
+    this.currentRoutePath.set(localStorage.getItem('currentRoute') as string);
     this.items =
       // this.pages().map((page: any) => {
       //   return {
@@ -33,45 +35,98 @@ export class TopNavMenuBar implements OnInit {
       [
         {
           label: 'Nyumbani',
+          routerLink: '',
+          routerLinkActiveOptions: {
+            class: 'active-link',
+          },
           command: () => {
-            this.router.navigate(['']);
+            this.onChangeRoute('');
           },
         },
         {
           label: 'Kuhusu Mwenge',
+          routerLink: 'about-us',
+          routerLinkActiveOptions: {
+            class: 'active-link',
+          },
           command: () => {
-            this.router.navigate(['/about-us']);
+            this.onChangeRoute('about-us');
           },
         },
         {
-          label: 'Ibada na Huduma',
-          command: () => {
-            this.router.navigate(['/services']);
+          label: 'Ibada na Masomo',
+          routerLink: 'services',
+          routerLinkActiveOptions: {
+            class: 'active-link',
           },
+          items: [
+            {
+              label: 'Ibada',
+              routerLinkActiveOptions: {
+                class: 'active-link',
+              },
+              command: () => {
+                this.onChangeRoute('services/ibada');
+              },
+            },
+            {
+              label: 'Masomo',
+              routerLinkActiveOptions: {
+                class: 'active-link',
+              },
+              command: () => {
+                this.onChangeRoute('services/masomo');
+              },
+            },
+          ],
         },
         {
           label: 'Idara na Miradi',
-          command: () => {
-            this.router.navigate(['/departments-and-projects']);
+          routerLink: 'departments-and-projects',
+          routerLinkActiveOptions: {
+            class: 'active-link',
           },
+          // command: () => {
+          //   this.router.navigate(['/departments-and-projects']);
+          // },
+          items: [
+            {
+              label: 'Idara ya Ustawi wa Jamii',
+              routerLinkActiveOptions: {
+                class: 'active-link',
+              },
+              command: () => {
+                this.onChangeRoute('departments-and-projects/test');
+              },
+            },
+          ],
         },
         {
           label: 'Habari na Matukio',
+          routerLink: 'events',
+          routerLinkActiveOptions: {
+            class: 'active-link',
+          },
           command: () => {
-            this.router.navigate(['/events']);
+            this.onChangeRoute('events');
           },
         },
         {
           label: 'Mawasiliano',
+          routerLink: 'contacts',
+          routerLinkActiveOptions: {
+            class: 'active-link',
+          },
           command: () => {
-            this.router.navigate(['/contacts']);
+            this.onChangeRoute('contacts');
           },
         },
       ];
   }
 
-  onChangeRoute(event: Event, path: string): void {
-    event.stopPropagation();
+  onChangeRoute(path: string): void {
+    this.currentRoutePath.set(path);
+    localStorage.setItem('currentRoute', path);
     this.router.navigate([path]);
   }
 }

@@ -12,12 +12,12 @@ export const appRoutes: Route[] = [
       import('./pages/about-us-page/about-us-page').then((c) => c.AboutUsPage),
   },
   {
-    path: 'services',
+    path: 'services/:id',
     loadComponent: () =>
       import('./pages/services-page/services-page').then((c) => c.ServicesPage),
   },
   {
-    path: 'departments-and-projects',
+    path: 'departments-and-projects/:id',
     loadComponent: () =>
       import('./pages/departments-page/departments-page').then(
         (c) => c.DepartmentsPage

@@ -1,6 +1,14 @@
-<div>
-  <app-shared-pages-welcome-container
-    [currentPathName]="'Mawasiliano'"
-    [pageName]="'Wasiliana nasi, karibu'"
-  ></app-shared-pages-welcome-container>
+<div class="container-fluid">
+  <div class="welcome-container">
+    <app-shared-pages-welcome-container
+      [currentPathName]="'Mawasiliano'"
+      [pageName]="'Wasiliana nasi, karibu'"
+    ></app-shared-pages-welcome-container>
+  </div>
+  <div class="container">
+    <app-contacts-us-form></app-contacts-us-form>
+  </div>
+  <div>
+    <app-maps-location-container></app-maps-location-container>
+  </div>
 </div>

@@ -1,14 +1,19 @@
 <p-menubar [model]="items" class="sticky-top custom-menu-bar">
   <ng-template #start>
-    <img src="assets/images/logo.png" style="height: 50px" alt="" />
+    <img src="assets/images/logo.png" style="height: 65px" alt="" />
   </ng-template>
   <ng-template #item let-item let-root="root">
-    <a pRipple class="flex items-center p-menubar-item-link">
+    <a
+      pRipple
+      class="flex items-center p-menubar-item-link"
+      [ngClass]="(item.routerLink === currentRoutePath() || (item.routerLink?.length > 0 && currentRoutePath().indexOf(item.routerLink) >= 0)) ? 'active-link': ''"
+    >
       <span>{{ item.label }}</span>
+      @if (item.items) {
       <i
-        *ngIf="item.items"
         [ngClass]="['ml-auto pi', root ? 'pi-angle-down' : 'pi-angle-right']"
       ></i>
+      }
     </a>
   </ng-template>
 </p-menubar>

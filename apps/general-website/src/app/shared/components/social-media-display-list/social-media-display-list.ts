@@ -1,9 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { SharedGeneralServiceAndState } from '../../services/general-state.service';
+import { of } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-social-media-display-list',
-  imports: [],
+  imports: [CommonModule, ButtonModule],
   templateUrl: './social-media-display-list.html',
   styleUrl: './social-media-display-list.css',
 })
-export class SocialMediaDisplayList {}
+export class SocialMediaDisplayList implements OnInit {
+  private generalStateService = inject(SharedGeneralServiceAndState);
+
+  socialMedia = this.generalStateService.socialMedia;
+
+  ngOnInit(): void {
+    of([
+      {
+        name: '',
+        link: '',
+        iconReference: 'pi-facebook',
+      },
+    ]).subscribe({
+      next: (response) => this.generalStateService.updateSocialMedia(response),
+    });
+  }
+}
