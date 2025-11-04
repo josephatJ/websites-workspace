@@ -21,6 +21,7 @@ export class NgxHttpClientService {
   init() {
     this.routeUrl().subscribe({
       next: (response: string) => {
+        console.log('response #######################', response);
         this.ROOT_URL = response ? response : this.ROOT_URL;
       },
     });
