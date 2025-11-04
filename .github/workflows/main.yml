@@ -1,0 +1,83 @@
+name: Build, Package & Deploy Website
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref == 'develop'
+    runs-on: ubuntu-latest
+    steps:
+      # 1️⃣ Checkout Repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Node
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 3️⃣ Install Dependencies
+      - name: Install dependencies
+        run: npm install --save --legacy-peer-deps
+
+      # 4️⃣ Build Angular
+      - name: Build Angular Project
+        run: npx nx build --prod --aot
+
+      # 5️⃣ Zip build folder (dist)
+      - name: Zip dist folder
+        run: |
+          cd dist/apps/general-website/browser/
+          zip -r website.zip .
+          mv website.zip ../../../website.zip
+      # 6️⃣ Create GitHub Release
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ github.run_number }}
+          name: Release v${{ github.run_number }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 7️⃣ Upload Zip to Release
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: website.zip
+          asset_name: website.zip
+          asset_content_type: application/zip
+
+      # 8️⃣ Deploy to Remote Server (optional)
+      - name: Upload to Server via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          source: 'website.zip'
+          target: '/var/www/html/releases'
+
+      # 9️⃣ (Optional) SSH into server and unzip/restart
+      - name: SSH & Deploy
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd /var/www/html
+            unzip -o website.zip -d website
