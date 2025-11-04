@@ -79,5 +79,5 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /var/www/html/releases
+            cd /var/www/html
             unzip -o website.zip -d website
