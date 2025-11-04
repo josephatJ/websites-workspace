@@ -30,7 +30,7 @@ jobs:
 
       # 4️⃣ Build Angular
       - name: Build Angular Project
-        run: npx nx build --prod --aot
+        run: npx nx build general-website --prod --aot
 
       # 5️⃣ Zip build folder (dist)
       - name: Zip dist folder
