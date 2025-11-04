@@ -37,7 +37,7 @@ jobs:
         run: |
           cd dist/apps/general-website/browser/
           zip -r website.zip .
-          mv website.zip ../../../website.zip
+          mv website.zip ../../../../website.zip
       # 6️⃣ Create GitHub Release
       - name: Create Release
         id: create_release
