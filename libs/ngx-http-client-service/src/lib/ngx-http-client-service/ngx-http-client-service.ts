@@ -29,6 +29,7 @@ export class NgxHttpClientService {
 
   get(path: string, httpOptions?: any): Observable<any> {
     const url = this.ROOT_URL + path;
+    console.log('GET URL #######################', url);
     return this.httpClient.get(url, httpOptions);
   }
 
