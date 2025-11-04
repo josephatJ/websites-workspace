@@ -1,0 +1,25 @@
+.department-page-container {
+  padding: 20px;
+  border-top: solid 1px #eee;
+}
+
+.departments-list li {
+  cursor: pointer;
+}
+
+.departments-list li:hover {
+  color: var(--primary-color);
+}
+
+.page-contents-container {
+  padding: 10px;
+}
+
+.department-heading,
+.active-department {
+  color: var(--primary-color);
+}
+
+.department-activities-list {
+  margin-left: 16px;
+}

@@ -33,3 +33,9 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.side-bar-list-container {
+  border: solid 1px var(--fainted-border-color);
+  border-radius: 8px;
+  padding: 10px;
+}

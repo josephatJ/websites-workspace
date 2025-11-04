@@ -1,5 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { SharedPagesService } from '../../services/pages-state.service';
 
 @Component({
   selector: 'app-shared-pages-welcome-container',
@@ -12,9 +13,11 @@ export class SharedPagesWelcomeContainer {
   @Input() currentPath!: string;
   @Input() currentPathName!: string;
   private router = inject(Router);
+  private pagesStateService = inject(SharedPagesService);
 
   changeRoute(event: Event, path: string): void {
     event.stopPropagation();
-    if (path && path.length > 0) this.router.navigate([path]);
+    this.pagesStateService.updateCurrentPagePath(path);
+    this.router.navigate([path]);
   }
 }

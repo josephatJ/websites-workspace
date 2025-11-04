@@ -1,6 +1,51 @@
 <div>
   <app-shared-pages-welcome-container
-    [currentPathName]="'Idara na Miradi'"
-    [pageName]="'Idara na Miradi mbalimbali'"
+    [currentPathName]="currentDepartmentAndProjectsPageItem()?.name"
+    [pageName]="currentDepartmentAndProjectsPageItem()?.title"
   ></app-shared-pages-welcome-container>
+
+  <div class="department-page-container container-fluid">
+    <div class="row">
+      <div class="col-md-9 col-sm-12 col-sx-12">
+        <div class="page-contents-container">
+          <!-- {{currentDepartmentAndProjectsPageItem() | json}} -->
+          <div class="h4 department-heading">
+            {{currentDepartmentAndProjectsPageItem()?.name}}
+          </div>
+          <p
+            [innerText]="currentDepartmentAndProjectsPageItem()?.description"
+          ></p>
+          <div class="h6"><b>Viongozi wa idara</b></div>
+          <div class="department-leadership-list mt-2"></div>
+          <div class="h6"><b>Kazi mbalimbali za idara</b></div>
+          <div class="department-activities-list mt-2">
+            @for (activity of departmentsActivities(); track activity?.id) {
+            <span class="font-weight-bold">{{activity?.title}}</span>
+            <ul>
+              <li>{{activity?.activity}}</li>
+            </ul>
+            }
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-12 col-sx-12">
+        <div class="side-bar-list-container">
+          <div class="h5 text-muted">Idara mbali mbali</div>
+          <div class="departments-list mt-2">
+            <ul>
+              @for (department of departments(); track department?.id) {
+              <li
+                [ngClass]="{'active-department': department?.id === currentDepartmentAndProjectsPageItem()?.id}"
+                (click)="onSetCurrentDepartment(department, 'departments')"
+              >
+                {{department?.name }}
+              </li>
+              }
+            </ul>
+          </div>
+          <div class="h5 text-muted mt-4">Miradi mbali mbali</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -16,13 +16,7 @@ export class SocialMediaDisplayList implements OnInit {
   socialMedia = this.generalStateService.socialMedia;
 
   ngOnInit(): void {
-    of([
-      {
-        name: '',
-        link: '',
-        iconReference: 'pi-facebook',
-      },
-    ]).subscribe({
+    this.generalStateService.loadData(`items/socialMedia`).subscribe({
       next: (response) => this.generalStateService.updateSocialMedia(response),
     });
   }

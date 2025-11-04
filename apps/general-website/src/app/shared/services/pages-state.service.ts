@@ -10,8 +10,15 @@ export class SharedPagesService {
   private _pages = signal<any[]>([]);
   pages = this._pages.asReadonly();
 
+  private _currentPagePath = signal<string>('');
+  currentPagePath = this._currentPagePath.asReadonly();
+
   updatePages(pages: any[]) {
     this._pages.set(pages);
+  }
+
+  updateCurrentPagePath(path: string) {
+    this._currentPagePath.set(path);
   }
 
   loadPages(): Observable<any[]> {

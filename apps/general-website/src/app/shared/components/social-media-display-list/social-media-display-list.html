@@ -1,8 +1,17 @@
 <!-- <p>social-media works!</p> -->
 <!-- {{socialMedia() | json}} -->
 <div class="d-flex justify-content-end media-list-container">
-  <ng-container *ngFor="let media of socialMedia()">
+  @for (media of socialMedia(); track $index) {
+  <ng-container>
     <!-- <button pIconButton [icon]="'pi ' + media?.iconReference"></button> -->
-    <i class="pi {{media?.iconReference}}"></i>
+    <a
+      [href]="media?.link"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mx-2"
+    >
+      <i [ngClass]="'pi ' + media?.iconReference"></i>
+    </a>
   </ng-container>
+  }
 </div>

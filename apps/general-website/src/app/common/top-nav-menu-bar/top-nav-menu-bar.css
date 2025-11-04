@@ -54,15 +54,15 @@ a:hover {
 }
 
 @media (min-width: 769px) {
-  ::ng-deep .custom-menu-bar p-menubarsub {
-    width: 100% !important;
-  }
-
   ::ng-deep .custom-menu-bar .p-menubar-root-list {
     display: flex !important;
-    justify-content: end !important;
+    justify-content: right !important;
     /* color: #fff !important; */
-    background-color: transparent !important;
+    /* background-color: transparent !important; */
+  }
+
+  ::ng-deep .custom-menu-bar p-menubarsub {
+    width: 100% !important;
   }
 }
 

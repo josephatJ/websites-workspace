@@ -6,7 +6,7 @@
     <a
       pRipple
       class="flex items-center p-menubar-item-link"
-      [ngClass]="(item.routerLink === currentRoutePath() || (item.routerLink?.length > 0 && currentRoutePath().indexOf(item.routerLink) >= 0)) ? 'active-link': ''"
+      [ngClass]="(item?.routerLink === currentRoutePath() || (item?.routerLink?.length > 0 && currentRoutePath() && currentRoutePath().indexOf(item?.routerLink) >= 0)) ? 'active-link': ''"
     >
       <span>{{ item.label }}</span>
       @if (item.items) {
