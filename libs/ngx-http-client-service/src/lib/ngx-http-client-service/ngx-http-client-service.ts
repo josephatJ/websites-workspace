@@ -9,66 +9,38 @@ import { Manifest } from './manifest.model';
 export class NgxHttpClientService {
   private ROOT_URL = '../../../';
   private httpClient = inject(HttpClient);
-  private _httpClientInitiated: boolean | undefined;
+  private _httpClientInitiated = false;
 
-  constructor() {
-    if (!this._httpClientInitiated) {
-      this._httpClientInitiated = true;
-      this.init();
-    }
-  }
+  init(): Promise<void> {
+    return new Promise((resolve) => {
+      if (this._httpClientInitiated) {
+        resolve();
+        return;
+      }
 
-  init() {
-    this.routeUrl().subscribe({
-      next: (response: string) => {
-        console.log('response #######################', response);
-        this.ROOT_URL = response ? response : this.ROOT_URL;
-      },
+      this.routeUrl().subscribe({
+        next: (response: string) => {
+          this.ROOT_URL = response ?? this.ROOT_URL;
+          this._httpClientInitiated = true;
+          console.log('ROOT_URL set to:', this.ROOT_URL);
+          resolve();
+        },
+        error: () => resolve(),
+      });
     });
-  }
-
-  get(path: string, httpOptions?: any): Observable<any> {
-    if (!this._httpClientInitiated) {
-      this.init();
-    }
-    const url = this.ROOT_URL + path;
-    console.log('GET URL #######################', url);
-    return this.httpClient.get(url, httpOptions);
-  }
-
-  post(path: string, data: any, httpOptions?: any): Observable<any> {
-    if (!this._httpClientInitiated) {
-      this.init();
-    }
-    const url = this.ROOT_URL + path;
-    return this.httpClient.post(url, data, httpOptions);
-  }
-
-  patch(path: string, data: any, httpOptions?: any): Observable<any> {
-    if (!this._httpClientInitiated) {
-      this.init();
-    }
-    const url = this.ROOT_URL + path;
-    return this.httpClient.patch(url, data, httpOptions);
-  }
-
-  me(): Observable<any> {
-    if (!this._httpClientInitiated) {
-      this.init();
-    }
-    return this.httpClient.get(this.ROOT_URL + 'me');
   }
 
   private routeUrl(): Observable<string> {
     return this.httpClient
-      .get<Manifest>(`manifest.webapp`)
+      .get<Manifest>('manifest.webapp')
       .pipe(map((response: Manifest) => response.href));
   }
 
-  systemInfo(): Observable<any> {
-    if (!this._httpClientInitiated) {
-      this.init();
-    }
-    return this.httpClient.get(this.ROOT_URL + 'system/info');
+  get(path: string, httpOptions?: any) {
+    return this.httpClient.get(this.ROOT_URL + path, httpOptions);
+  }
+
+  post(path: string, body: any, httpOptions?: any) {
+    return this.httpClient.post(this.ROOT_URL + path, body, httpOptions);
   }
 }
