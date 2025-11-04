@@ -17,14 +17,14 @@ export const appRoutes: Route[] = [
       import('./pages/services-page/services-page').then((c) => c.ServicesPage),
   },
   {
-    path: 'departments-and-projects/:category/:id',
+    path: 'departments/departments/:id',
     loadComponent: () =>
       import('./pages/departments-page/departments-page').then(
         (c) => c.DepartmentsPage
       ),
   },
   {
-    path: 'events',
+    path: 'events-and-news/:category/:id',
     loadComponent: () =>
       import('./pages/events-page/events-page').then((c) => c.EventsPage),
   },
@@ -32,5 +32,10 @@ export const appRoutes: Route[] = [
     path: 'contacts',
     loadComponent: () =>
       import('./pages/contacts-page/contacts-page').then((c) => c.ContactsPage),
+  },
+  {
+    path: 'others/:category/:id',
+    loadComponent: () =>
+      import('./pages/others-page/others-page').then((c) => c.OthersPage),
   },
 ];

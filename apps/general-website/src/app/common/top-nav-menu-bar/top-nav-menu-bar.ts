@@ -39,7 +39,9 @@ export class TopNavMenuBar implements OnInit {
                   label: item?.name,
                   command: () => {
                     this.onChangeRoute(
-                      `${page?.routePath}/${item?.category}/${item?.key}`
+                      `${page?.routePath}/${item?.category}/${
+                        item?.key ? item?.key : item?.id
+                      }`
                     );
                   },
                 };

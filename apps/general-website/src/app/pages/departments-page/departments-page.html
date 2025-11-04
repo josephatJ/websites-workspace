@@ -19,7 +19,9 @@
           <div class="department-leadership-list mt-2"></div>
           <div class="h6"><b>Kazi mbalimbali za idara</b></div>
           <div class="department-activities-list mt-2">
-            @for (activity of departmentsActivities(); track activity?.id) {
+            @for (activity of departmentsActivities() |
+            filterDepartmentActivities:
+            currentDepartmentAndProjectsPageItem()?.id; track activity?.id) {
             <span class="font-weight-bold">{{activity?.title}}</span>
             <ul>
               <li>{{activity?.activity}}</li>

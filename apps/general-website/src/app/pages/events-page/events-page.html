@@ -5,16 +5,11 @@
       [pageName]="'Habari na Matukio yetu'"
     ></app-shared-pages-welcome-container>
   </div>
-  <div class="row mt-2 page-contents-container">
-    <div class="col-md-8 col-sm-12 col-sx-12">
-      <div>
-        <app-events-summary></app-events-summary>
-      </div>
-    </div>
-    <div class="col-md-4 col-sm-12 col-sx-12">
-      <div class="news-summary-container">
-        <app-news-summary></app-news-summary>
-      </div>
-    </div>
+  <div class="page-contents-container mt-4">
+    @if (category() === 'news') {
+    <app-news-container></app-news-container>
+    } @if (category() === 'events') {
+    <app-events-container></app-events-container>
+    }
   </div>
 </div>
