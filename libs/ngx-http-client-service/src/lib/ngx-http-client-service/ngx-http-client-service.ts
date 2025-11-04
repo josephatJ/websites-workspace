@@ -28,20 +28,34 @@ export class NgxHttpClientService {
   }
 
   get(path: string, httpOptions?: any): Observable<any> {
+    if (!this._httpClientInitiated) {
+      this.init();
+    }
     const url = this.ROOT_URL + path;
     console.log('GET URL #######################', url);
     return this.httpClient.get(url, httpOptions);
   }
 
   post(path: string, data: any, httpOptions?: any): Observable<any> {
-    return this.httpClient.post(this.ROOT_URL + path, data);
+    if (!this._httpClientInitiated) {
+      this.init();
+    }
+    const url = this.ROOT_URL + path;
+    return this.httpClient.post(url, data, httpOptions);
   }
 
   patch(path: string, data: any, httpOptions?: any): Observable<any> {
-    return this.httpClient.patch(this.ROOT_URL + path, data);
+    if (!this._httpClientInitiated) {
+      this.init();
+    }
+    const url = this.ROOT_URL + path;
+    return this.httpClient.patch(url, data, httpOptions);
   }
 
   me(): Observable<any> {
+    if (!this._httpClientInitiated) {
+      this.init();
+    }
     return this.httpClient.get(this.ROOT_URL + 'me');
   }
 
@@ -52,6 +66,9 @@ export class NgxHttpClientService {
   }
 
   systemInfo(): Observable<any> {
+    if (!this._httpClientInitiated) {
+      this.init();
+    }
     return this.httpClient.get(this.ROOT_URL + 'system/info');
   }
 }
