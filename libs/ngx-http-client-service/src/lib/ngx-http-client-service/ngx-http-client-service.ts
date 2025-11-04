@@ -28,7 +28,8 @@ export class NgxHttpClientService {
   }
 
   get(path: string, httpOptions?: any): Observable<any> {
-    return this.httpClient.get(this.ROOT_URL + path, httpOptions);
+    const url = this.ROOT_URL + path;
+    return this.httpClient.get(url, httpOptions);
   }
 
   post(path: string, data: any, httpOptions?: any): Observable<any> {
