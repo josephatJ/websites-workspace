@@ -5,7 +5,7 @@
         <!-- {{homeWelcomeDisplayList() | json}} -->
         <p-carousel
           [value]="homeWelcomeDisplayList()"
-          [numVisible]="1"
+          [numVisible]="homeWelcomeDisplayList().length"
           [numScroll]="homeWelcomeDisplayList().length"
           [circular]="true"
           [responsiveOptions]="responsiveOptions"
