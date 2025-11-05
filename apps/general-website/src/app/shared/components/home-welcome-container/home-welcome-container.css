@@ -1,7 +1,17 @@
 .home-welcome-container {
-  min-height: 430px;
+  min-height: 410px;
 }
 
 .border-left {
   border-left: solid 1px #eee;
+}
+
+::ng-deep .p-carousel-viewport {
+  margin-left: -40px !important;
+  margin-right: -40px !important;
+  z-index: 100 !important;
+}
+
+::ng-deep .p-carousel-prev-button {
+  z-index: 102 !important;
 }

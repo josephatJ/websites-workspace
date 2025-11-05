@@ -6,6 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
+import { orderBy } from 'lodash';
 
 @Component({
   selector: 'app-home-welcome-container',
@@ -37,7 +38,7 @@ export class HomeWelcomeContainer implements OnInit {
         .subscribe({
           next: (featuredEvents) => {
             this.generalStateService.updateHomeWelcomeDisplayList(
-              featuredEvents
+              orderBy(featuredEvents, ['order'], ['asc'])
             );
           },
         });
