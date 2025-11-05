@@ -1,1 +1,10 @@
-<p>events-summary works!</p>
+@for (event of events(); track $index) {
+
+<div class="event-container" (click)="onSetCurrentEvent(event)">
+  <div class="h5 heading">{{event?.title}}</div>
+  <div class="h6">
+    <span class="text-muted">Tarehe: </span>{{event?.startDate | date}}
+  </div>
+  <p>{{event?.description}}</p>
+</div>
+}

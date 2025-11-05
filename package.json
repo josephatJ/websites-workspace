@@ -16,6 +16,7 @@
     "@primeng/themes": "^20.2.0",
     "bootstrap": "^5.3.8",
     "lodash": "^4.17.21",
+    "ngx-markdown": "^20.1.0",
     "primeicons": "^7.0.0",
     "primeng": "^20.2.0",
     "quill": "^2.0.3",

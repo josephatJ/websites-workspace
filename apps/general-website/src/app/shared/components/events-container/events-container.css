@@ -1,0 +1,8 @@
+.event-container {
+  padding: 8px 32px;
+}
+
+.title {
+  color: var(--primary-color);
+  font-weight: 600;
+}

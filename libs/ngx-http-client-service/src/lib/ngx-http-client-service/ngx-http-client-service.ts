@@ -22,7 +22,6 @@ export class NgxHttpClientService {
         next: (response: string) => {
           this.ROOT_URL = response ?? this.ROOT_URL;
           this._httpClientInitiated = true;
-          console.log('ROOT_URL set to:', this.ROOT_URL);
           resolve();
         },
         error: () => resolve(),

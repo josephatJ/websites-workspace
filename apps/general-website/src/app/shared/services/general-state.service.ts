@@ -21,6 +21,11 @@ export class SharedGeneralServiceAndState {
   currentDepartmentAndProjectsPageItem =
     this._currentDepartmentAndProjectsPageItem.asReadonly();
 
+  private _events = signal<any[]>([]);
+  events = this._events.asReadonly();
+  private _currentEvent = signal<any>(null);
+  currentEvent = this._currentEvent.asReadonly();
+
   updateSocialMedia(socialMedia: any[]) {
     this._socialMedia.set(socialMedia);
   }
@@ -35,6 +40,14 @@ export class SharedGeneralServiceAndState {
 
   updateDepartmentsActivities(activities: any[]) {
     this._departmentsActivities.set(activities);
+  }
+
+  updateEvents(events: any[]) {
+    this._events.set(events);
+  }
+
+  updateCurrentEvent(event: any) {
+    this._currentEvent.set(event);
   }
 
   loadData(link: string): Observable<any> {
