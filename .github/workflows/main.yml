@@ -11,7 +11,19 @@ permissions:
 
 jobs:
   build-and-release:
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref == 'develop'
+    if: >
+      (
+        github.event_name == 'pull_request' &&
+        github.event.pull_request.merged == true &&
+        github.event.pull_request.base.ref == 'main' &&
+        github.event.pull_request.head.ref == 'develop'
+      )
+      ||
+      (
+        github.event_name == 'push' &&
+        github.ref == 'refs/heads/develop' &&
+        startsWith(github.event.head_commit.message, 'Release:')
+      )
     runs-on: ubuntu-latest
     steps:
       # 1️⃣ Checkout Repo
