@@ -1,6 +1,10 @@
 <p-menubar [model]="items" class="sticky-top custom-menu-bar">
   <ng-template #start>
-    <img src="assets/images/logo.png" style="height: 65px" alt="" />
+    <img
+      [src]="sanitize('../../../' + introduction()?.logo)"
+      style="height: 65px"
+      alt=""
+    />
   </ng-template>
   <ng-template #item let-item let-root="root">
     <a

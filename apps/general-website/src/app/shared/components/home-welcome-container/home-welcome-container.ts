@@ -31,13 +31,17 @@ export class HomeWelcomeContainer implements OnInit {
   }
 
   ngOnInit(): void {
-    this.generalStateService
-      .loadData(`items/featuredEvents?fields=*`)
-      .subscribe({
-        next: (featuredEvents) => {
-          this.generalStateService.updateHomeWelcomeDisplayList(featuredEvents);
-        },
-      });
+    if (this.homeWelcomeDisplayList()?.length === 0) {
+      this.generalStateService
+        .loadData(`items/featuredEvents?fields=*`)
+        .subscribe({
+          next: (featuredEvents) => {
+            this.generalStateService.updateHomeWelcomeDisplayList(
+              featuredEvents
+            );
+          },
+        });
+    }
     this.responsiveOptions = [
       {
         breakpoint: '1400px',
