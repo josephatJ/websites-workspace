@@ -11,25 +11,27 @@
           [responsiveOptions]="responsiveOptions"
         >
           <ng-template let-event #item>
-            <div class="border border-surface rounded-border m-2 p-4">
+            <div class="border border-surface rounded-border mt-2">
               <div class="mb-4">
                 <div class="relative mx-auto">
                   <img
-                    [src]="sanitize('http://161.97.142.70/assets/'+ event.picture)"
+                    [src]="sanitize('../../../assets/'+ event.picture)"
                     [alt]="event.title"
                     class="w-full rounded-border"
                   />
-                  <p-tag
+                  <!-- <p-tag
                     [value]="event?.title"
                     severity="secondary"
                     class="absolute dark:!bg-surface-900"
                     [ngStyle]="{ 'left.px': 5, 'top.px': 5 }"
-                  />
+                  /> -->
+                  @if (event?.description) {
                   <p-tag
                     [value]="event?.description"
                     severity="secondary"
                     class="absolute dark:!bg-surface-900"
                   />
+                  }
                 </div>
               </div>
               <!-- <div class="mb-4 font-medium">{{ event.name }}</div>
