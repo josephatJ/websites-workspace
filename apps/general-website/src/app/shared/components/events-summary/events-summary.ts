@@ -1,9 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { SharedGeneralServiceAndState } from '../../services/general-state.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-events-summary',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './events-summary.html',
-  styleUrl: './events-summary.css',
+  styleUrl: './events-summary.scss',
 })
-export class EventsSummary {}
+export class EventsSummary {
+  private generalStateService = inject(SharedGeneralServiceAndState);
+  events = this.generalStateService.events;
+
+  onSetCurrentEvent(currentEvent: any) {
+    this.generalStateService.updateCurrentEvent(currentEvent);
+  }
+}

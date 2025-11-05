@@ -1,7 +1,20 @@
 <div class="container-fluid">
   <div class="row mt-2">
     <div class="col-md-8 col-sm-12 col-sx-12">
-      <div></div>
+      <div class="event-container">
+        <div class="h4 title">{{currentEvent()?.title}}</div>
+        <div class="h6">
+          <span class="text-muted">Tarehe ya tukio:</span>
+          {{currentEvent()?.startDate | date}}
+        </div>
+        <p class="mt-4">{{currentEvent()?.description}}</p>
+
+        <div>
+          <p
+            [innerHtml]="currentEvent()?.eventSummary | formatMarkdownToHtml"
+          ></p>
+        </div>
+      </div>
     </div>
     <div class="col-md-4 col-sm-12 col-sx-12">
       <div class="news-summary-container">
