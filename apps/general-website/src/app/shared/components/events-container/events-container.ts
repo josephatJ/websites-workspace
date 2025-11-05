@@ -18,15 +18,17 @@ export class EventsContainer implements OnInit {
   ngOnInit() {
     // console.log(this.events());
     if (this.events()?.length === 0) {
-      this.generalStateService.loadData(`items/events?fields=*`).subscribe({
-        next: (events) => {
-          this.generalStateService.updateEvents(events);
-          this.generalStateService.updateCurrentEvent(events[0]);
-        },
-        error: (err) => {
-          console.error(err);
-        },
-      });
+      this.generalStateService
+        .loadData(`items/events?fields=*,photos.*`)
+        .subscribe({
+          next: (events) => {
+            this.generalStateService.updateEvents(events);
+            this.generalStateService.updateCurrentEvent(events[0]);
+          },
+          error: (err) => {
+            console.error(err);
+          },
+        });
     }
   }
 }

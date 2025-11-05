@@ -1,0 +1,12 @@
+@for (item of galleria(); track $index) {
+<div>
+  @for (image of item?.pictures; track $index) {
+  <p-image
+    [src]="'../../../assets'+ image"
+    alt="Image"
+    width="250"
+    [preview]="true"
+  />
+  }
+</div>
+} {{galleria() | json}}
