@@ -6,7 +6,7 @@
         <p-carousel
           [value]="homeWelcomeDisplayList()"
           [numVisible]="1"
-          [numScroll]="1"
+          [numScroll]="homeWelcomeDisplayList().length"
           [circular]="true"
           [responsiveOptions]="responsiveOptions"
         >
@@ -20,6 +20,7 @@
                     [src]="sanitize('../../../assets/'+ event.picture)"
                     [alt]="event.title"
                     class="w-full rounded-border"
+                    style="width: 100%"
                   />
                   <!-- <p-tag
                     [value]="event?.title"
