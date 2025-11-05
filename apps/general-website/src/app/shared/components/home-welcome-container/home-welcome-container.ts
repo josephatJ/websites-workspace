@@ -46,7 +46,7 @@ export class HomeWelcomeContainer implements OnInit {
       {
         breakpoint: '1200px',
         numVisible: 1,
-        numScroll: 1,
+        numScroll: 2,
       },
     ];
   }
