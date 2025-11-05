@@ -7,7 +7,7 @@
           [value]="homeWelcomeDisplayList()"
           [numVisible]="1"
           [numScroll]="1"
-          [circular]="false"
+          [circular]="true"
           [responsiveOptions]="responsiveOptions"
         >
           <ng-template let-event #item>
@@ -16,11 +16,18 @@
                 <div class="relative mx-auto">
                   <img
                     [src]="sanitize('http://161.97.142.70/assets/'+ event.picture)"
-                    [alt]="event.name"
+                    [alt]="event.title"
                     class="w-full rounded-border"
                   />
                   <p-tag
-                    [value]="event.inventoryStatus"
+                    [value]="event?.title"
+                    severity="secondary"
+                    class="absolute dark:!bg-surface-900"
+                    [ngStyle]="{ 'left.px': 5, 'top.px': 5 }"
+                  />
+                  <p-tag
+                    [value]="event?.description"
+                    severity="secondary"
                     class="absolute dark:!bg-surface-900"
                   />
                 </div>
