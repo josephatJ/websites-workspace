@@ -26,6 +26,12 @@ export class SharedGeneralServiceAndState {
   private _currentEvent = signal<any>(null);
   currentEvent = this._currentEvent.asReadonly();
 
+  private _introduction = signal<any>(null);
+  introduction = this._introduction.asReadonly();
+
+  private _homeWelcomeDisplayList = signal<any[]>([]);
+  homeWelcomeDisplayList = this._homeWelcomeDisplayList.asReadonly();
+
   updateSocialMedia(socialMedia: any[]) {
     this._socialMedia.set(socialMedia);
   }
@@ -48,6 +54,14 @@ export class SharedGeneralServiceAndState {
 
   updateCurrentEvent(event: any) {
     this._currentEvent.set(event);
+  }
+
+  updateIntroduction(introduction: any) {
+    this._introduction.set(introduction);
+  }
+
+  updateHomeWelcomeDisplayList(homeWelcomeDisplayList: any[]) {
+    this._homeWelcomeDisplayList.set(homeWelcomeDisplayList);
   }
 
   loadData(link: string): Observable<any> {

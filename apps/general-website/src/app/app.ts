@@ -56,5 +56,11 @@ export class App implements OnInit {
           this.pagesState.updatePages(orderBy(pages, ['order'], ['asc']));
         },
       });
+
+    this.generalStateService.loadData(`items/introduction`).subscribe({
+      next: (introduction) => {
+        this.generalStateService.updateIntroduction(introduction);
+      },
+    });
   }
 }

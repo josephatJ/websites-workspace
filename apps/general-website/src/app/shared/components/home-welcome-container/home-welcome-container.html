@@ -1,7 +1,48 @@
 <div class="container-fluid home-welcome-container">
   <div class="row">
     <div class="col-md-10 col-sm-12 col-sx-12">
-      <p>home-welcome-container works!</p>
+      <div>
+        <!-- {{homeWelcomeDisplayList() | json}} -->
+        <p-carousel
+          [value]="homeWelcomeDisplayList()"
+          [numVisible]="1"
+          [numScroll]="1"
+          [circular]="false"
+          [responsiveOptions]="responsiveOptions"
+        >
+          <ng-template let-event #item>
+            <div class="border border-surface rounded-border m-2 p-4">
+              <div class="mb-4">
+                <div class="relative mx-auto">
+                  <img
+                    [src]="sanitize('http://161.97.142.70/assets/'+ event.picture)"
+                    [alt]="event.name"
+                    class="w-full rounded-border"
+                  />
+                  <p-tag
+                    [value]="event.inventoryStatus"
+                    class="absolute dark:!bg-surface-900"
+                  />
+                </div>
+              </div>
+              <!-- <div class="mb-4 font-medium">{{ event.name }}</div>
+              <div class="flex justify-between items-center">
+                <div class="mt-0 font-semibold text-xl">
+                  {{ '$' + event.price }}
+                </div>
+                <span>
+                  <p-button
+                    icon="pi pi-heart"
+                    severity="secondary"
+                    [outlined]="true"
+                  />
+                  <p-button icon="pi pi-shopping-cart" styleClass="ml-2" />
+                </span>
+              </div> -->
+            </div>
+          </ng-template>
+        </p-carousel>
+      </div>
     </div>
     <div class="col-md-2 col-sm-12 col-sx-12 border-left">
       <app-shared-introduction-summary></app-shared-introduction-summary>
