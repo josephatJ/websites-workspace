@@ -81,3 +81,6 @@ jobs:
           script: |
             cd /var/www/html
             unzip -o website.zip -d website
+            cp manifest.webapp website
+            systemctl restart nginx.service
+            echo "Deployment completed."
