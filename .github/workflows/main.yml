@@ -6,6 +6,10 @@ on:
       - closed
     branches:
       - main
+  push:
+    branches:
+      - develop
+
 permissions:
   contents: write
 
@@ -17,13 +21,12 @@ jobs:
         github.event.pull_request.merged == true &&
         github.event.pull_request.base.ref == 'main' &&
         github.event.pull_request.head.ref == 'develop'
-      )
-      ||
+      ) ||
       (
         github.event_name == 'push' &&
-        github.ref == 'refs/heads/develop' &&
         startsWith(github.event.head_commit.message, 'Release:')
       )
+
     runs-on: ubuntu-latest
     steps:
       # 1️⃣ Checkout Repo
