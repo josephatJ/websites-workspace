@@ -13,3 +13,16 @@
 .footer-container {
   color: #fff;
 }
+
+.copyright {
+  font-size: 0.8rem;
+}
+
+::ng-deep
+  .p-menubar-root-list
+  > .p-menubar-item
+  > .p-menubar-item-content
+  > .p-menubar-item-link {
+  padding: var(--p-menubar-base-item-padding);
+  padding-right: inherit !important;
+}

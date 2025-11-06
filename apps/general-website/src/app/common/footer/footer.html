@@ -6,10 +6,11 @@
     <div class="col-md-4 col-sm-12 col-sx-12"></div>
   </div>
   <div class="row footer-botton-banner">
-    <div class="col-md-4 col-sm-12 col-sx-12">
-      <p class="text-left">Copyright © Mwenge Moravian Tanzania - {{ year}}</p>
+    <div class="col-md-8 col-sm-12 col-sx-12">
+      <p class="text-left copyright">
+        {{introduction()?.copyright}} - {{ year}}
+      </p>
     </div>
-    <div class="col-md-4 col-sm-12 col-sx-12"></div>
     <div class="col-md-4 col-sm-12 col-sx-12">
       <app-social-media-display-list></app-social-media-display-list>
     </div>
