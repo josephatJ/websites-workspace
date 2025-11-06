@@ -38,4 +38,9 @@ export const appRoutes: Route[] = [
     loadComponent: () =>
       import('./pages/others-page/others-page').then((c) => c.OthersPage),
   },
+  {
+    path: 'donation',
+    loadComponent: () =>
+      import('./pages/donation-page/donation-page').then((c) => c.DonationPage),
+  },
 ];

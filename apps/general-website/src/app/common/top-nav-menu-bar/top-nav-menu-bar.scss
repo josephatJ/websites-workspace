@@ -19,7 +19,7 @@
   background-color: transparent !important;
 }
 a:hover {
-  color: var(--primary-color) !important;
+  color: var(--primary-color);
 }
 
 ::ng-deep .p-menubar-root-list {
@@ -67,6 +67,21 @@ a:hover {
 }
 
 .active-link {
-  color: var(--primary-color) !important;
+  color: var(--primary-color);
   font-weight: 700 !important;
+}
+
+::ng-deep .donation-button {
+  background-color: var(--primary-color);
+  padding-right: 8px !important;
+  border-radius: 8px;
+  color: #fff !important;
+  .donation-button:hover {
+    color: #fff;
+    font-weight: 600;
+  }
+}
+
+.p-menubar-root-list {
+  gap: 0 !important;
 }

@@ -13,7 +13,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   selector: 'app-top-nav-menu-bar',
   imports: [CommonModule, MegaMenuModule, MenuModule, MenubarModule],
   templateUrl: './top-nav-menu-bar.html',
-  styleUrl: './top-nav-menu-bar.css',
+  styleUrl: './top-nav-menu-bar.scss',
 })
 export class TopNavMenuBar implements OnInit {
   private router = inject(Router);
