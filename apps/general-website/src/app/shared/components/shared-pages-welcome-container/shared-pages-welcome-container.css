@@ -25,16 +25,3 @@
 .current-page {
   color: var(--primary-color) !important;
 }
-
-.blockquote,
-blockquote {
-  position: relative;
-  margin: 20px 0;
-  font-size: 14px;
-  color: #022147;
-  padding: 10px 30px;
-  background-position: center;
-  background-size: cover;
-  background-color: #f7f7f7;
-  border-left: 2px solid #f74f22;
-}

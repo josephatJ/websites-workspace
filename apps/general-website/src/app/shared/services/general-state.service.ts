@@ -38,6 +38,15 @@ export class SharedGeneralServiceAndState {
   private _donationInformation = signal<any>(null);
   donationInformation = this._donationInformation.asReadonly();
 
+  private _aboutUs = signal<any>(null);
+  aboutUs = this._aboutUs.asReadonly();
+
+  private _vision = signal<any>(null);
+  vision = this._vision.asReadonly();
+
+  private _mission = signal<any>(null);
+  mission = this._mission.asReadonly();
+
   updateSocialMedia(socialMedia: any[]) {
     this._socialMedia.set(socialMedia);
   }
@@ -76,6 +85,18 @@ export class SharedGeneralServiceAndState {
 
   updateDonationInformation(donationInformation: any) {
     this._donationInformation.set(donationInformation);
+  }
+
+  updateAboutUs(aboutUs: any) {
+    this._aboutUs.set(aboutUs);
+  }
+
+  updateMission(mission: any) {
+    this._mission.set(mission);
+  }
+
+  updateVision(vision: any) {
+    this._vision.set(vision);
   }
 
   loadData(link: string): Observable<any> {

@@ -3,9 +3,12 @@
 @use 'bootstrap/scss/bootstrap' as *;
 
 :root {
-  --primary-color: #d24d27;
+  // f74f22
+  // d24d27
+  --primary-color: #f74f22;
   --fainted-border-color: #cbd5e140;
   --while-color: #fff;
+  --faint-darkblue-color: #022147;
 }
 
 body {
@@ -48,4 +51,29 @@ body {
 
 .shared-page-padding {
   padding: 24px 8px;
+}
+
+.tag-display {
+  color: var(--faint-darkblue-color);
+  font-size: 24px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.title-display {
+  color: var(--primary-color);
+  font-size: 36px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.blockquote {
+  position: relative;
+  margin: 20px 0;
+  font-size: 14px;
+  padding: 10px 30px;
+  background-position: center;
+  background-size: cover;
+  background-color: #f7f7f7;
+  border-left: 2px solid var(--primary-color);
 }

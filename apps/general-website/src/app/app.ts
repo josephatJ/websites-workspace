@@ -75,5 +75,17 @@ export class App implements OnInit {
         this.generalStateService.updateDonationInformation(donationInformation);
       },
     });
+
+    this.generalStateService.loadData(`items/vision`).subscribe({
+      next: (vision) => {
+        this.generalStateService.updateVision(vision);
+      },
+    });
+
+    this.generalStateService.loadData(`items/mission`).subscribe({
+      next: (mission) => {
+        this.generalStateService.updateMission(mission);
+      },
+    });
   }
 }

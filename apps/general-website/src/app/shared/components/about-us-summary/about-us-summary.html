@@ -1,1 +1,32 @@
-<p>about-us-summary works!</p>
+<div class="about-us-summary-container container-fluid">
+  <div class="shared-page-padding">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-sx-12">
+        @for (photo of aboutUs()?.photos; track $index) {
+        <p class="text-center">
+          <img
+            height="120"
+            [src]="'../../../assets/' + photo?.directus_files_id"
+          />
+        </p>
+        }
+      </div>
+      <div class="col-md-9 col-sm-9 col-sx-12">
+        <div class="about-tag tag-display">
+          <i class="pi pi-plus"></i> {{aboutUs()?.tag}}
+        </div>
+        <div class="about-title title-display">{{aboutUs()?.title}}</div>
+        <p class="blockquote">{{aboutUs()?.description}}</p>
+
+        <div class="vision mt-4">
+          <div class="header">{{vision()?.title}}</div>
+          <p class="info">{{vision()?.description}}</p>
+        </div>
+        <div class="mission mt-4">
+          <div class="header">{{mission()?.title}}</div>
+          <p class="info">{{mission()?.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
