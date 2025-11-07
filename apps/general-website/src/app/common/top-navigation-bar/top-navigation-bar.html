@@ -1,12 +1,12 @@
 <div class="container-fluid top-nav-container">
   <div class="row">
-    <div class="col-md-8 col-sm-12 col-sx-12 phone-and-email">
-      <span class="email-address">
+    <div class="col-md-8 col-sm-12 col-sx-12 phone-and-email mt-2 mb-2">
+      <span class="email-address mt-2">
         <a [href]="'mailto:'+introduction()?.emailAddress">
           {{introduction()?.emailAddress}}
         </a>
       </span>
-      <span class="ms-2">
+      <span class="ms-2 mb-2">
         @for (phoneNumber of phoneNumbers(); track $index) {
         <span
           ><a [href]="'tel:'+ phoneNumber?.phone">
