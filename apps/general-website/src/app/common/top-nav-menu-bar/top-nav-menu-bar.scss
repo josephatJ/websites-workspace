@@ -82,6 +82,6 @@ a:hover {
   }
 }
 
-.p-menubar-root-list {
+::ng-deep .p-menubar-root-list {
   gap: 0 !important;
 }
