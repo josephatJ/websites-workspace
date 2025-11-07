@@ -12,6 +12,8 @@ import { SharedGeneralServiceAndState } from '../../shared/services/general-stat
 export class Footer {
   private generalStateService = inject(SharedGeneralServiceAndState);
   introduction = this.generalStateService.introduction;
+  phoneNumbers = this.generalStateService.phoneNumbers;
+
   get year(): string {
     return new Date().getFullYear().toString();
   }

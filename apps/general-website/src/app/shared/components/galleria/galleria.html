@@ -1,12 +1,12 @@
 @for (item of galleria(); track $index) {
 <div>
-  @for (image of item?.pictures; track $index) {
+  @for (photo of item?.photos; track $index) {
   <p-image
-    [src]="'../../../assets'+ image"
+    [src]="'../../../assets/'+ photo?.directus_files_id"
     alt="Image"
     width="250"
     [preview]="true"
   />
   }
 </div>
-} {{galleria() | json}}
+}

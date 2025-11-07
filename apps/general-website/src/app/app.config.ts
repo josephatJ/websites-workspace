@@ -12,6 +12,7 @@ import { providePrimeNG } from 'primeng/config';
 import { provideHttpClient } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgxHttpClientService } from '@websites-workspace/ngx-http-client-service';
+import { provideAnimations } from '@angular/platform-browser/animations';
 // export function initApp(service: NgxHttpClientService) {
 //   return () => service.init();
 // }
@@ -21,6 +22,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(),
+    provideAnimations(),
     provideAppInitializer(() => {
       const svc = inject(NgxHttpClientService);
       return svc.init();

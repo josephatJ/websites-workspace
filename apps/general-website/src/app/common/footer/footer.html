@@ -1,6 +1,14 @@
 <div class="container-fluid footer-container">
   <div class="row footer-summary-container">
-    <div class="col-md-4 col-sm-12 col-sx-12"></div>
+    <div class="col-md-4 col-sm-12 col-sx-12 about-church-and-address-summary">
+      <!-- <img height="120" [src]="'../../../assets/' + introduction()?.logo" /> -->
+      <p>{{introduction()?.churchName}}</p>
+      <p>{{introduction()?.district}}</p>
+      <p>{{introduction()?.diocese}}</p>
+      <hr />
+
+      <p>{{introduction()?.addressLocation}}</p>
+    </div>
     <div class="col-md-2 col-sm-12 col-sx-12"></div>
     <div class="col-md-2 col-sm-12 col-sx-12"></div>
     <div class="col-md-4 col-sm-12 col-sx-12"></div>
