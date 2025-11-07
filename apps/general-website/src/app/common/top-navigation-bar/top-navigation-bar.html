@@ -1,8 +1,22 @@
 <div class="container-fluid top-nav-container">
   <div class="row">
-    <div class="col-md-5 col-sm-12 col-sx-12"></div>
-    <div class="col-md-5 col-sm-12 col-sx-12"></div>
-    <div class="col-md-2 col-sm-12 col-sx-12">
+    <div class="col-md-8 col-sm-12 col-sx-12 phone-and-email">
+      <span class="email-address">
+        <a [href]="'mailto:'+introduction()?.emailAddress">
+          {{introduction()?.emailAddress}}
+        </a>
+      </span>
+      <span class="ms-2">
+        @for (phoneNumber of phoneNumbers(); track $index) {
+        <span
+          ><a [href]="'tel:'+ phoneNumber?.phone">
+            <i class="pi pi-phone mr-1"></i> {{phoneNumber?.phone}}</a
+          >
+        </span>
+        }
+      </span>
+    </div>
+    <div class="col-md-4 col-sm-12 col-sx-12">
       <app-social-media-display-list></app-social-media-display-list>
     </div>
   </div>

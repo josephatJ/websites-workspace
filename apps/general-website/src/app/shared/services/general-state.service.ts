@@ -32,6 +32,9 @@ export class SharedGeneralServiceAndState {
   private _homeWelcomeDisplayList = signal<any[]>([]);
   homeWelcomeDisplayList = this._homeWelcomeDisplayList.asReadonly();
 
+  private _phoneNumbers = signal<any[]>([]);
+  phoneNumbers = this._phoneNumbers.asReadonly();
+
   updateSocialMedia(socialMedia: any[]) {
     this._socialMedia.set(socialMedia);
   }
@@ -62,6 +65,10 @@ export class SharedGeneralServiceAndState {
 
   updateHomeWelcomeDisplayList(homeWelcomeDisplayList: any[]) {
     this._homeWelcomeDisplayList.set(homeWelcomeDisplayList);
+  }
+
+  updatePhoneNumbers(phoneNumbers: any[]) {
+    this._phoneNumbers.set(phoneNumbers);
   }
 
   loadData(link: string): Observable<any> {

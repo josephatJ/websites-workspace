@@ -62,5 +62,12 @@ export class App implements OnInit {
         this.generalStateService.updateIntroduction(introduction);
       },
     });
+    this.generalStateService.loadData(`items/phoneNumbers`).subscribe({
+      next: (phoneNumbers) => {
+        this.generalStateService.updatePhoneNumbers(
+          orderBy(phoneNumbers, ['priority'], ['asc'])
+        );
+      },
+    });
   }
 }
