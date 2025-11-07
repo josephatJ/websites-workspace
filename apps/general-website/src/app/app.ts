@@ -69,5 +69,11 @@ export class App implements OnInit {
         );
       },
     });
+
+    this.generalStateService.loadData(`items/donationInformation`).subscribe({
+      next: (donationInformation) => {
+        this.generalStateService.updateDonationInformation(donationInformation);
+      },
+    });
   }
 }

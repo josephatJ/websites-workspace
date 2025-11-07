@@ -1,8 +1,11 @@
 <div class="container-fluid">
-  <div>
+  <div class="welcome-page-container">
     <app-shared-pages-welcome-container
-      [currentPathName]="'Kuchangia'"
-      [pageName]="'Karibu kuchangia mambo mbalimbali'"
+      [currentPathName]="donationInformation()?.welcomeTitle"
+      [pageName]="donationInformation()?.welcomeTitleDescription"
     ></app-shared-pages-welcome-container>
+  </div>
+  <div class="donation container">
+    <app-donation></app-donation>
   </div>
 </div>

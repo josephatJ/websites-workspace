@@ -35,6 +35,9 @@ export class SharedGeneralServiceAndState {
   private _phoneNumbers = signal<any[]>([]);
   phoneNumbers = this._phoneNumbers.asReadonly();
 
+  private _donationInformation = signal<any>(null);
+  donationInformation = this._donationInformation.asReadonly();
+
   updateSocialMedia(socialMedia: any[]) {
     this._socialMedia.set(socialMedia);
   }
@@ -69,6 +72,10 @@ export class SharedGeneralServiceAndState {
 
   updatePhoneNumbers(phoneNumbers: any[]) {
     this._phoneNumbers.set(phoneNumbers);
+  }
+
+  updateDonationInformation(donationInformation: any) {
+    this._donationInformation.set(donationInformation);
   }
 
   loadData(link: string): Observable<any> {
