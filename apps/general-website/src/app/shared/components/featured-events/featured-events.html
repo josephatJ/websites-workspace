@@ -1,1 +1,48 @@
-<p>featured-events works!</p>
+<div class="featured-events-list-carousel">
+  <p-carousel
+    [value]="events()"
+    [numVisible]="1"
+    [numScroll]="2"
+    [circular]="true"
+    [responsiveOptions]="responsiveOptions"
+  >
+    <ng-template let-event #item>
+      <div class="border-surface rounded-border mt-2">
+        <div class="mb-0">
+          <div class="relative mx-auto">
+            <div class="row">
+              <div class="col-md-8 col-sm-12 col-sx-12">
+                <img
+                  height="410"
+                  [src]="'../../../assets/'+ event.picture"
+                  [alt]="event.title"
+                  class="w-full rounded-border"
+                  style="width: 100%"
+                />
+              </div>
+              <div class="col-md-4 col-sm-12 col-sx-12">
+                <div class="featured-events-description">
+                  <p>{{event?.description}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="mb-4 font-medium">{{ event.name }}</div>
+              <div class="flex justify-between items-center">
+                <div class="mt-0 font-semibold text-xl">
+                  {{ '$' + event.price }}
+                </div>
+                <span>
+                  <p-button
+                    icon="pi pi-heart"
+                    severity="secondary"
+                    [outlined]="true"
+                  />
+                  <p-button icon="pi pi-shopping-cart" styleClass="ml-2" />
+                </span>
+              </div> -->
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>
