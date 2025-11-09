@@ -6,12 +6,28 @@
   border-left: solid 1px #eee;
 }
 
-/* ::ng-deep .p-carousel-viewport {
+::ng-deep .p-carousel-viewport {
   margin-left: -40px !important;
   margin-right: -40px !important;
   z-index: 100 !important;
-} */
+}
 
 ::ng-deep .p-carousel-prev-button {
   z-index: 102 !important;
 }
+
+.scrolling-image {
+  height: 410px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .scrolling-image {
+    height: 210px;
+    width: 100%;
+  }
+}
+
+/* @media (min-width: 769px) {
+  
+} */
