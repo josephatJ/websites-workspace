@@ -4,5 +4,7 @@
 
 .featured-events-list-carousel {
   padding: 24px 0;
-  background-color: #eee;
+  background-color: var(--faint-darkblue-color);
+  /* background-color: #eee; */
+  color: #fff;
 }

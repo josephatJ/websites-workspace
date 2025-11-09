@@ -2,13 +2,15 @@
   <div class="row">
     <div class="col-md-10 col-sm-12 col-sx-12">
       <div>
+        <!-- {{homeWelcomeDisplayList().length}} {{responsiveOptions | json}} -->
         <!-- {{homeWelcomeDisplayList() | json}} -->
         <p-carousel
           [value]="homeWelcomeDisplayList()"
           [numVisible]="1"
-          [numScroll]="2"
+          [numScroll]="1"
           [circular]="true"
           [responsiveOptions]="responsiveOptions"
+          autoplayInterval="3000"
         >
           <ng-template let-event #item>
             <div class="border-surface rounded-border mt-2">

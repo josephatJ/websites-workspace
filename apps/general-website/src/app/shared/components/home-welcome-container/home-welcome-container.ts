@@ -40,15 +40,23 @@ export class HomeWelcomeContainer implements OnInit {
             this.generalStateService.updateHomeWelcomeDisplayList(
               orderBy(featuredEvents, ['order'], ['asc'])
             );
+            this.responsiveOptions = [
+              {
+                breakpoint: '1200px',
+                numVisible: 1,
+                numScroll: 3,
+              },
+            ];
           },
         });
+    } else {
+      this.responsiveOptions = [
+        {
+          breakpoint: '1200px',
+          numVisible: 1,
+          numScroll: this.homeWelcomeDisplayList()?.length,
+        },
+      ];
     }
-    this.responsiveOptions = [
-      {
-        breakpoint: '1200px',
-        numVisible: 1,
-        numScroll: 2,
-      },
-    ];
   }
 }
