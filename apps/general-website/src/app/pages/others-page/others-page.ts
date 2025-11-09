@@ -2,10 +2,12 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Galleria } from '../../shared/components/galleria/galleria';
 import { CommonModule } from '@angular/common';
+import { LeadersList } from '../../shared/components/leaders-list/leaders-list';
+import { SharedPagesWelcomeContainer } from '../../shared/components/shared-pages-welcome-container/shared-pages-welcome-container';
 
 @Component({
   selector: 'app-others-page',
-  imports: [CommonModule, Galleria],
+  imports: [CommonModule, Galleria, LeadersList, SharedPagesWelcomeContainer],
   templateUrl: './others-page.html',
   styleUrl: './others-page.css',
 })

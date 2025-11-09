@@ -1,3 +1,16 @@
-@if (category() =='pictures') {
-<app-galleria></app-galleria>
-}
+<div>
+  @if (category() =='pictures') {
+  <app-galleria></app-galleria>
+  } @if (category() =='leaders') {
+
+  <div>
+    <app-shared-pages-welcome-container
+      [currentPathName]="'Viongozi mbalimbali'"
+      [pageName]="'Viongozi mbalimbali wa Usharika wa Mwenge Moravian'"
+    ></app-shared-pages-welcome-container>
+  </div>
+  <div class="page-contents-container container-fluid">
+    <app-leaders-list></app-leaders-list>
+  </div>
+  }
+</div>
