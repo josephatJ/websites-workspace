@@ -1,0 +1,12 @@
+::ng-deep .p-card-title {
+  font-size: 1rem !important;
+}
+
+/* a {
+  text-decoration: none !important;
+  color: #fff !important;
+} */
+
+::ng-deep .p-card-body {
+  gap: 0 !important;
+}

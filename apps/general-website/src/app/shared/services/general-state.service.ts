@@ -47,6 +47,9 @@ export class SharedGeneralServiceAndState {
   private _mission = signal<any>(null);
   mission = this._mission.asReadonly();
 
+  private _leaders = signal<any[]>([]);
+  leaders = this._leaders.asReadonly();
+
   updateSocialMedia(socialMedia: any[]) {
     this._socialMedia.set(socialMedia);
   }
@@ -97,6 +100,10 @@ export class SharedGeneralServiceAndState {
 
   updateVision(vision: any) {
     this._vision.set(vision);
+  }
+
+  updateLeaders(leaders: any[]) {
+    this._leaders.set(leaders);
   }
 
   loadData(link: string): Observable<any> {
