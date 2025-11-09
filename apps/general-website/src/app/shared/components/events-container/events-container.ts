@@ -30,5 +30,8 @@ export class EventsContainer implements OnInit {
           },
         });
     }
+    if (!this.currentEvent() && this.events()?.length > 0) {
+      this.generalStateService.updateCurrentEvent(this.events()[0]);
+    }
   }
 }
