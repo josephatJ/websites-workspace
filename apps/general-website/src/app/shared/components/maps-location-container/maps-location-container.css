@@ -1,0 +1,40 @@
+:host,
+.maps-page {
+  display: block;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  font-family: system-ui, Arial, sans-serif;
+}
+
+/* Bottom sticky panel */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.95);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  backdrop-filter: blur(4px);
+}
+
+.coords {
+  font-size: 14px;
+}
+.btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #1976d2;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: 0.8;
+}
