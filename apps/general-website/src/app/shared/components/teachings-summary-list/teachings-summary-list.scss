@@ -1,0 +1,11 @@
+.surmons-list-container {
+  border-left: solid 5px var(--primary-color);
+  padding: 4px 4px 8px 16px;
+}
+.surmons-list-container:hover {
+  cursor: pointer;
+  .heading {
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+}

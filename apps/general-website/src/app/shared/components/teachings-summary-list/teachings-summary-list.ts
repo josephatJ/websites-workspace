@@ -1,26 +1,28 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { SharedGeneralServiceAndState } from '../../services/general-state.service';
-import { TeachingsSummaryList } from '../teachings-summary-list/teachings-summary-list';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-teachings',
-  imports: [TeachingsSummaryList],
-  templateUrl: './teachings.html',
-  styleUrl: './teachings.css',
+  selector: 'app-teachings-summary-list',
+  imports: [CommonModule],
+  templateUrl: './teachings-summary-list.html',
+  styleUrl: './teachings-summary-list.scss',
 })
-export class Teachings implements OnInit {
+export class TeachingsSummaryList implements OnInit {
   private generalStateService = inject(SharedGeneralServiceAndState);
   teachings = this.generalStateService.teachings;
-  currentSermon = this.generalStateService.currentSermon;
 
   ngOnInit(): void {
     if (this.teachings()?.length === 0) {
       this.generalStateService.loadData(`items/sermons`).subscribe({
         next: (teachings) => {
           this.generalStateService.updateTeachings(teachings);
-          this.generalStateService.setCurrentSermon(teachings[0]);
         },
       });
     }
+  }
+
+  onSetCurrentSermon(sermon: any) {
+    this.generalStateService.setCurrentSermon(sermon);
   }
 }

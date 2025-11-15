@@ -59,6 +59,9 @@ export class SharedGeneralServiceAndState {
   private _teachings = signal<any[]>([]);
   teachings = this._teachings.asReadonly();
 
+  private _currentSermon = signal<any>(null);
+  currentSermon = this._currentSermon.asReadonly();
+
   updateSocialMedia(socialMedia: any[]) {
     this._socialMedia.set(socialMedia);
   }
@@ -125,6 +128,10 @@ export class SharedGeneralServiceAndState {
 
   updateTeachings(teachings: any[]) {
     this._teachings.set(teachings);
+  }
+
+  setCurrentSermon(sermon: any) {
+    this._currentSermon.set(sermon);
   }
 
   loadData(link: string): Observable<any> {

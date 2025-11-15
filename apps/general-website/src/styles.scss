@@ -46,9 +46,16 @@ body {
 
 .welcome-page-container,
 .welcome-container,
-.border-bottom,
-.border-top {
+.border-bottom {
   border-bottom: solid 1px var(--fainted-border-color);
+}
+
+.border-top {
+  border-top: solid 1px var(--fainted-border-color);
+}
+
+.shared-border-right {
+  border-right: solid 1px var(--fainted-border-color);
 }
 
 .shared-page-padding {

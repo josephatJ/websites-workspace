@@ -1,0 +1,15 @@
+@for (sermon of teachings(); track $index) {
+
+<div class="surmons-list-container" (click)="onSetCurrentSermon(sermon)">
+  <div class="h5 heading">
+    <span class="text-muted">Somo: </span> {{sermon?.title}}
+  </div>
+  <div class="h6">
+    <span class="text-muted">Tarehe: </span>{{sermon?.dateOfRelease | date}}
+  </div>
+  <div class="h6">
+    <span class="text-muted">Mtoa mada: </span>{{sermon?.preacher}}
+  </div>
+  <p>{{sermon?.description}}</p>
+</div>
+}
