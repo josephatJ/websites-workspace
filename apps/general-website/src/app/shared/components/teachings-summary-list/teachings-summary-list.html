@@ -1,6 +1,10 @@
 @for (sermon of teachings(); track $index) {
 
-<div class="surmons-list-container" (click)="onSetCurrentSermon(sermon)">
+<div
+  class="surmons-list-container"
+  [ngClass]="{'active-sermon': currentSermon()?.id ===  sermon?.id}"
+  (click)="onSetCurrentSermon(sermon)"
+>
   <div class="h5 heading">
     <span class="text-muted">Somo: </span> {{sermon?.title}}
   </div>

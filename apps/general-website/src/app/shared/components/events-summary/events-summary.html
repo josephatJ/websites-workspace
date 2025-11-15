@@ -1,6 +1,10 @@
 @for (event of events(); track $index) {
 
-<div class="event-container" (click)="onSetCurrentEvent(event)">
+<div
+  class="event-container"
+  [ngClass]="{'active-event': currentEvent()?.id === event.id }"
+  (click)="onSetCurrentEvent(event)"
+>
   <div class="h5 heading">{{event?.title}}</div>
   <div class="h6">
     <span class="text-muted">Tarehe: </span>{{event?.startDate | date}}

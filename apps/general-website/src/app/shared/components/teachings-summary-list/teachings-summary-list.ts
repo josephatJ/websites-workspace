@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 export class TeachingsSummaryList implements OnInit {
   private generalStateService = inject(SharedGeneralServiceAndState);
   teachings = this.generalStateService.teachings;
+  currentSermon = this.generalStateService.currentSermon;
 
   ngOnInit(): void {
     if (this.teachings()?.length === 0) {

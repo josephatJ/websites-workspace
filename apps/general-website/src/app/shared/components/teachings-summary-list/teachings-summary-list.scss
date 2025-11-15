@@ -1,8 +1,10 @@
 .surmons-list-container {
-  border-left: solid 5px var(--primary-color);
   padding: 4px 4px 8px 16px;
+  margin-bottom: 12px !important;
 }
-.surmons-list-container:hover {
+.surmons-list-container:hover,
+.active-sermon {
+  border-left: solid 5px var(--primary-color);
   cursor: pointer;
   .heading {
     color: var(--primary-color);

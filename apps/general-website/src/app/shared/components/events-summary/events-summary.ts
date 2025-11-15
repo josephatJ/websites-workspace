@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 export class EventsSummary {
   private generalStateService = inject(SharedGeneralServiceAndState);
   events = this.generalStateService.events;
+  currentEvent = this.generalStateService.currentEvent;
 
   onSetCurrentEvent(currentEvent: any) {
     this.generalStateService.updateCurrentEvent(currentEvent);
