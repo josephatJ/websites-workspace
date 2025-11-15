@@ -47,7 +47,7 @@ export class App implements OnInit {
               ...page,
               items:
                 page?.routePath?.indexOf('departments') === 0
-                  ? response?.departments
+                  ? orderBy(response?.departments, ['order'], ['asc'])
                   : response?.subPages?.filter(
                       (subPage: any) => subPage?.pageUuid === page?.id
                     ),
