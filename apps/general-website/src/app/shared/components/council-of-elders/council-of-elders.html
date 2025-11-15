@@ -1,31 +1,31 @@
-<div class="leaders-container shared-page-padding">
-  <div class="h4 mt-4 mb-2 text-center title-display">Viongozi wa Ushirika</div>
+<div class="leaders-container container-fluid p-3 shared-page-padding">
+  <div class="h4 mt-4 mb-4 text-center title-display">Baraza la Wazee</div>
   <div class="row">
-    @for (leader of leaders(); track $index) {
+    @for (elder of councilOfElders(); track $index) {
     <div class="col-md-3 col-sm-12 col-sx-12">
       <p-card [style]="{overflow: 'hidden' }">
         <ng-template #header>
           <img
             height="500"
-            alt="{{leader?.names}}"
+            alt="{{elder?.names}}"
             class="w-full w-100"
-            [src]="'../../../assets/'+leader?.photo"
+            [src]="'../../../assets/'+elder?.photo"
           />
         </ng-template>
-        <ng-template #title>
-          <b class="text-muted">{{leader?.generalTitle}}</b> {{leader?.names}}
-        </ng-template>
+        <ng-template #title> {{elder?.names}} </ng-template>
         <ng-template #subtitle>
-          <p class="m-0">{{leader?.description}}</p>
-          <p class="m-0">{{leader?.phoneNumbers}}</p>
+          <p class="m-0">{{elder?.title}}</p>
+          <p class="m-0">{{elder?.phoneNumbers}}</p>
         </ng-template>
         <ng-template #footer>
           <div class="flex gap-4 mt-1">
             <!-- <p-button label="Cancel" severity="secondary" class="w-full" [outlined]="true" styleClass="w-full" />
             <p-button label="Save" class="w-full" styleClass="w-full" /> -->
-            <a pButton size="small" [href]="leader?.youtubeLink" target="_blank"
+            @if (elder?.youtubeLink) {
+            <a pButton size="small" [href]="elder?.youtubeLink" target="_blank"
               ><i class="pi pi-youtube"></i
             ></a>
+            }
           </div>
         </ng-template>
       </p-card>
