@@ -3,10 +3,16 @@ import { Component, inject, OnInit } from '@angular/core';
 import { SharedPagesWelcomeContainer } from '../../shared/components/shared-pages-welcome-container/shared-pages-welcome-container';
 import { AboutUsSummary } from '../../shared/components/about-us-summary/about-us-summary';
 import { SharedGeneralServiceAndState } from '../../shared/services/general-state.service';
+import { LeadersList } from '../../shared/components/leaders-list/leaders-list';
 
 @Component({
   selector: 'app-about-us-page',
-  imports: [CommonModule, SharedPagesWelcomeContainer, AboutUsSummary],
+  imports: [
+    CommonModule,
+    SharedPagesWelcomeContainer,
+    AboutUsSummary,
+    LeadersList,
+  ],
   templateUrl: './about-us-page.html',
   styleUrl: './about-us-page.css',
 })

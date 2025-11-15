@@ -11,20 +11,20 @@
     </p>
     <p class="text-center" [innerText]="donationInformation()?.message"></p>
     <div class="text-center">
-      <b> Mitandao ya Simu: </b> @for (phoneNumber of phoneNumbers(); track
-      $index) {
+      <b class="primary-color-text"> Mitandao ya Simu: </b> @for (phoneNumber of
+      phoneNumbers(); track $index) {
       <p>
-        <b class="primary-color-text">{{phoneNumber?.phone}} </b> |
-        {{phoneNumber?.category}} | {{phoneNumber?.names}}
+        <b>{{phoneNumber?.phone}} </b> | {{phoneNumber?.category}} |
+        {{phoneNumber?.names}}
       </p>
       }
     </div>
     <div class="text-center mt-2">
-      <b>Akaunti ya Benki:</b> @for (bankAccount of bankAccounts(); track
-      $index) {
+      <b class="primary-color-text">Akaunti ya Benki:</b> @for (bankAccount of
+      bankAccounts(); track $index) {
       <p>
-        <b class="primary-color-text">{{bankAccount?.account}} </b> |
-        {{bankAccount?.bankName}} | {{bankAccount?.names}}
+        <b>{{bankAccount?.account}} </b> | {{bankAccount?.bankName}} |
+        {{bankAccount?.names}}
       </p>
       }
     </div>
