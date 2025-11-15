@@ -1,3 +1,8 @@
 .welcome-container {
   border-bottom: solid 1px #eee;
 }
+
+.contacts-us-container a {
+  text-decoration: none !important;
+  color: var(--faint-darkblue-color);
+}
