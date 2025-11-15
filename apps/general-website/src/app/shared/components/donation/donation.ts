@@ -10,4 +10,6 @@ import { SharedGeneralServiceAndState } from '../../services/general-state.servi
 export class Donation {
   private generalStateService = inject(SharedGeneralServiceAndState);
   donationInformation = this.generalStateService.donationInformation;
+  phoneNumbers = this.generalStateService.phoneNumbers;
+  bankAccounts = this.generalStateService.bankAccounts;
 }

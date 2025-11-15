@@ -1,6 +1,32 @@
 <div class="donatioon-container shared-page-padding">
-  <div class="donation-tag">{{donationInformation()?.tag}}</div>
+  <div class="donation-tag primary-color-text">
+    {{donationInformation()?.tag}}
+  </div>
   <div class="donation-information-header">
     {{donationInformation()?.title}}
+  </div>
+  <div>
+    <p class="text-center">
+      {{ donationInformation()?.welcomeTitleDescription}}
+    </p>
+    <p class="text-center" [innerText]="donationInformation()?.message"></p>
+    <div class="text-center">
+      <b> Mitandao ya Simu: </b> @for (phoneNumber of phoneNumbers(); track
+      $index) {
+      <p>
+        <b class="primary-color-text">{{phoneNumber?.phone}} </b> |
+        {{phoneNumber?.category}} | {{phoneNumber?.names}}
+      </p>
+      }
+    </div>
+    <div class="text-center mt-2">
+      <b>Akaunti ya Benki:</b> @for (bankAccount of bankAccounts(); track
+      $index) {
+      <p>
+        <b class="primary-color-text">{{bankAccount?.account}} </b> |
+        {{bankAccount?.bankName}} | {{bankAccount?.names}}
+      </p>
+      }
+    </div>
   </div>
 </div>

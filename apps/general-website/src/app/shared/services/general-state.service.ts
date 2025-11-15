@@ -35,6 +35,9 @@ export class SharedGeneralServiceAndState {
   private _phoneNumbers = signal<any[]>([]);
   phoneNumbers = this._phoneNumbers.asReadonly();
 
+  private _bankAccounts = signal<any[]>([]);
+  bankAccounts = this._bankAccounts.asReadonly();
+
   private _donationInformation = signal<any>(null);
   donationInformation = this._donationInformation.asReadonly();
 
@@ -84,6 +87,10 @@ export class SharedGeneralServiceAndState {
 
   updatePhoneNumbers(phoneNumbers: any[]) {
     this._phoneNumbers.set(phoneNumbers);
+  }
+
+  updateBankAccounts(accounts: any[]) {
+    this._bankAccounts.set(accounts);
   }
 
   updateDonationInformation(donationInformation: any) {
