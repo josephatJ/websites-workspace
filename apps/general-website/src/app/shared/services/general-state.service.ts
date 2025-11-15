@@ -53,6 +53,12 @@ export class SharedGeneralServiceAndState {
   private _leaders = signal<any[]>([]);
   leaders = this._leaders.asReadonly();
 
+  private _worshipSessions = signal<any[]>([]);
+  worshipSessions = this._worshipSessions.asReadonly();
+
+  private _teachings = signal<any[]>([]);
+  teachings = this._teachings.asReadonly();
+
   updateSocialMedia(socialMedia: any[]) {
     this._socialMedia.set(socialMedia);
   }
@@ -111,6 +117,14 @@ export class SharedGeneralServiceAndState {
 
   updateLeaders(leaders: any[]) {
     this._leaders.set(leaders);
+  }
+
+  updateWorshipSessions(sessions: any[]) {
+    this._worshipSessions.set(sessions);
+  }
+
+  updateTeachings(teachings: any[]) {
+    this._teachings.set(teachings);
   }
 
   loadData(link: string): Observable<any> {

@@ -1,0 +1,25 @@
+<div class="workship-sessions-container container shared-page-padding">
+  <div class="h4 mt-4 mb-2 text-center title-display">Ibada zetu</div>
+  <div class="row">
+    @for (worshipSession of worshipSessions(); track $index) {
+    <div class="col-md-4 col-sm-12 col-sx-12">
+      <p-card [style]="{overflow: 'hidden' }">
+        <ng-template #header>
+          <img
+            height="80"
+            alt="{{worshipSession?.photo}}"
+            class="w-full"
+            [src]="'../../../assets/'+worshipSession?.photo"
+          />
+        </ng-template>
+        <ng-template #title>
+          <b class="text-muted">{{worshipSession?.session}}</b>
+        </ng-template>
+        <ng-template #subtitle>
+          <p class="m-0">{{worshipSession?.sessionPeriod}}</p>
+        </ng-template>
+      </p-card>
+    </div>
+    }
+  </div>
+</div>

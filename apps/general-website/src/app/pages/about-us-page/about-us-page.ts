@@ -4,6 +4,7 @@ import { SharedPagesWelcomeContainer } from '../../shared/components/shared-page
 import { AboutUsSummary } from '../../shared/components/about-us-summary/about-us-summary';
 import { SharedGeneralServiceAndState } from '../../shared/services/general-state.service';
 import { LeadersList } from '../../shared/components/leaders-list/leaders-list';
+import { MapsLocationContainer } from '../../shared/components/maps-location-container/maps-location-container';
 
 @Component({
   selector: 'app-about-us-page',
@@ -12,6 +13,7 @@ import { LeadersList } from '../../shared/components/leaders-list/leaders-list';
     SharedPagesWelcomeContainer,
     AboutUsSummary,
     LeadersList,
+    MapsLocationContainer,
   ],
   templateUrl: './about-us-page.html',
   styleUrl: './about-us-page.css',
