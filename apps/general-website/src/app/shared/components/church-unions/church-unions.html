@@ -1,1 +1,22 @@
-<p>church-unions works!</p>
+<div class="church-unions-container container shared-page-padding">
+  <div class="h4 mt-4 mb-4 text-center title-display">Jumuiya Zetu</div>
+  <div class="row">
+    @for (churchUnion of churchUnions(); track $index) {
+    <div class="col-md-4 col-sm-12 col-sx-12">
+      <p-card [style]="{overflow: 'hidden', margin: '0 0 8px 0' }">
+        <ng-template #title class="primary-color-text">
+          {{churchUnion?.name}}
+        </ng-template>
+        <ng-template #subtitle>
+          <p class="m-0 mb-2">
+            Maeneo ya jumuiya: {{churchUnion?.areasUnderUnion}}
+          </p>
+          <p class="m-0">Mzee 1: {{churchUnion?.maleLeader}}</p>
+          <p class="m-0">Mzee 2: {{churchUnion?.femaleLeader}}</p>
+          <p class="m-0">Diakoni: {{churchUnion?.deacon}}</p>
+        </ng-template>
+      </p-card>
+    </div>
+    }
+  </div>
+</div>

@@ -6,6 +6,7 @@ import { LeadersList } from '../../shared/components/leaders-list/leaders-list';
 import { SharedPagesWelcomeContainer } from '../../shared/components/shared-pages-welcome-container/shared-pages-welcome-container';
 import { CouncilOfElders } from '../../shared/components/council-of-elders/council-of-elders';
 import { Choirs } from '../../shared/components/choirs/choirs';
+import { ChurchUnions } from '../../shared/components/church-unions/church-unions';
 
 @Component({
   selector: 'app-others-page',
@@ -16,6 +17,7 @@ import { Choirs } from '../../shared/components/choirs/choirs';
     SharedPagesWelcomeContainer,
     CouncilOfElders,
     Choirs,
+    ChurchUnions,
   ],
   templateUrl: './others-page.html',
   styleUrl: './others-page.css',
