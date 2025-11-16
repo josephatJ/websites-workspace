@@ -1,1 +1,11 @@
-<p>news page works!</p>
+@for (news of news(); track $index) {
+
+<div
+  class="news-container"
+  [ngClass]="{'active-event': currentNews()?.id === news.id }"
+  (click)="onSetCurrentNews(news)"
+>
+  <div class="h5 heading">{{news?.title}}</div>
+  <p>{{news?.description}}</p>
+</div>
+}

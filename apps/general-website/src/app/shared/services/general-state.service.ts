@@ -65,6 +65,12 @@ export class SharedGeneralServiceAndState {
   private _councilOfElders = signal<any[]>([]);
   councilOfElders = this._councilOfElders.asReadonly();
 
+  private _news = signal<any[]>([]);
+  news = this._news.asReadonly();
+
+  private _currentNews = signal<any>(null);
+  currentNews = this._currentNews.asReadonly();
+
   updateSocialMedia(socialMedia: any[]) {
     this._socialMedia.set(socialMedia);
   }
@@ -139,6 +145,14 @@ export class SharedGeneralServiceAndState {
 
   updateCouncilOfElders(elders: any[]) {
     this._councilOfElders.set(elders);
+  }
+
+  updateNews(news: any[]) {
+    this._news.set(news);
+  }
+
+  setCurrentNews(currentNews: any) {
+    this._currentNews.set(currentNews);
   }
 
   loadData(link: string): Observable<any> {

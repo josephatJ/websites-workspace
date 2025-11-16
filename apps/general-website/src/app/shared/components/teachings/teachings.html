@@ -7,7 +7,9 @@
     <div class="col-md-9 col-sm-12 col-sx-12">
       <div class="shared-border-left ps-4">
         <div></div>
-        <p [innerText]="currentSermon()?.sermonInformation"></p>
+        <p
+          [innerHtml]="currentSermon()?.sermonInformation | formatMarkdownToHtml"
+        ></p>
       </div>
     </div>
   </div>
