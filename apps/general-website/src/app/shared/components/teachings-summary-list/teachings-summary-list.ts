@@ -27,6 +27,14 @@ export class TeachingsSummaryList implements OnInit {
 
   onSetCurrentSermon(sermon: any) {
     this.router.navigate([`services/teachings/${sermon.id}`]);
-    this.generalStateService.setCurrentSermon(sermon);
+    const baseUrl = 'https://mwengemoravian.or.tz/#/services/teachings/';
+    const message = 'Karibu utazame somo hili:-> ' + sermon?.title + ' :';
+    const shareUrl = `https://wa.me/?text=${encodeURIComponent(
+      message + baseUrl + sermon.id
+    )}`;
+    this.generalStateService.setCurrentSermon({
+      ...sermon,
+      shareUrl,
+    });
   }
 }

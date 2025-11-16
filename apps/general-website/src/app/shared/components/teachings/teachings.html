@@ -11,8 +11,7 @@
         <div class="h5">
           <span class="primary-color-text"> {{currentSermon()?.title}} </span>
           <span class="ms-2">
-            <a
-              [href]="'https://wa.me/?text=Check%20this%20out%3A%20' + 'https://mwengemoravian.or.tz/#/services/teachings/' +currentSermon()?.id"
+            <a [href]="currentSermon()?.shareUrl" target="_blank"
               ><i class="pi pi-share-alt"></i
             ></a>
           </span>

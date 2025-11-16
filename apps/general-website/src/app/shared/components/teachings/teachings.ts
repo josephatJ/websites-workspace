@@ -22,11 +22,33 @@ export class Teachings implements OnInit {
         next: (teachings) => {
           this.generalStateService.updateTeachings(teachings);
           if (this.id && this.id != 'teachings') {
-            this.generalStateService.setCurrentSermon(
-              teachings?.find((sermon: any) => sermon?.id === this.id)
+            const currentSermon = teachings?.find(
+              (sermon: any) => sermon?.id === this.id
             );
+            const baseUrl =
+              'https://mwengemoravian.or.tz/#/services/teachings/';
+            const message =
+              'Karibu utazame somo hili:-> ' + currentSermon?.title + ' :';
+            const shareUrl = `https://wa.me/?text=${encodeURIComponent(
+              message + baseUrl + currentSermon.id
+            )}`;
+            this.generalStateService.setCurrentSermon({
+              ...currentSermon,
+              shareUrl,
+            });
           } else {
-            this.generalStateService.setCurrentSermon(teachings[0]);
+            const currentSermon = teachings[0];
+            const baseUrl =
+              'https://mwengemoravian.or.tz/#/services/teachings/';
+            const message =
+              'Karibu utazame somo hili:-> ' + currentSermon?.title + ' :';
+            const shareUrl = `https://wa.me/?text=${encodeURIComponent(
+              message + baseUrl + currentSermon.id
+            )}`;
+            this.generalStateService.setCurrentSermon({
+              ...currentSermon,
+              shareUrl,
+            });
           }
         },
       });
