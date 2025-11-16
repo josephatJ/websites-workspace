@@ -28,7 +28,9 @@ export class Teachings implements OnInit {
             const baseUrl =
               'https://mwengemoravian.or.tz/#/services/teachings/';
             const message =
-              'Karibu utazame somo hili:-> ' + currentSermon?.title + ' :';
+              'Karibu utazame somo lenye kichwa -> *' +
+              currentSermon?.title +
+              '* :';
             const shareUrl = `https://wa.me/?text=${encodeURIComponent(
               message + baseUrl + currentSermon.id
             )}`;
@@ -41,7 +43,9 @@ export class Teachings implements OnInit {
             const baseUrl =
               'https://mwengemoravian.or.tz/#/services/teachings/';
             const message =
-              'Karibu utazame somo hili:-> ' + currentSermon?.title + ' :';
+              'Karibu utazame somo lenye kichwa -> *' +
+              currentSermon?.title +
+              '* :';
             const shareUrl = `https://wa.me/?text=${encodeURIComponent(
               message + baseUrl + currentSermon.id
             )}`;
