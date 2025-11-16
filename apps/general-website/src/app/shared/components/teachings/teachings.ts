@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { SharedGeneralServiceAndState } from '../../services/general-state.service';
 import { TeachingsSummaryList } from '../teachings-summary-list/teachings-summary-list';
 import { FormatMarkdownToHtmlPipe } from '../../pipes/format-markdown-to-html-pipe';
@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './teachings.css',
 })
 export class Teachings implements OnInit {
+  @Input() id!: string;
   private generalStateService = inject(SharedGeneralServiceAndState);
   teachings = this.generalStateService.teachings;
   currentSermon = this.generalStateService.currentSermon;
@@ -20,7 +21,13 @@ export class Teachings implements OnInit {
       this.generalStateService.loadData(`items/sermons`).subscribe({
         next: (teachings) => {
           this.generalStateService.updateTeachings(teachings);
-          this.generalStateService.setCurrentSermon(teachings[0]);
+          if (this.id && this.id != 'teachings') {
+            this.generalStateService.setCurrentSermon(
+              teachings?.find((sermon: any) => sermon?.id === this.id)
+            );
+          } else {
+            this.generalStateService.setCurrentSermon(teachings[0]);
+          }
         },
       });
     }

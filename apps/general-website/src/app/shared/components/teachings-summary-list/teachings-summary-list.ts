@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { SharedGeneralServiceAndState } from '../../services/general-state.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-teachings-summary-list',
@@ -10,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class TeachingsSummaryList implements OnInit {
   private generalStateService = inject(SharedGeneralServiceAndState);
+  private router = inject(Router);
   teachings = this.generalStateService.teachings;
   currentSermon = this.generalStateService.currentSermon;
 
@@ -24,6 +26,7 @@ export class TeachingsSummaryList implements OnInit {
   }
 
   onSetCurrentSermon(sermon: any) {
+    this.router.navigate([`services/teachings/${sermon.id}`]);
     this.generalStateService.setCurrentSermon(sermon);
   }
 }

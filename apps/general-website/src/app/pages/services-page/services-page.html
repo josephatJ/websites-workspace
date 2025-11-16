@@ -7,7 +7,7 @@
     @if(category()=== 'worshipSessions') {
     <app-worship-sessions></app-worship-sessions>
     } @if(category()=== 'teachings' || category()=== 'sermons') {
-    <app-teachings></app-teachings>
+    <app-teachings [id]="uuid"></app-teachings>
     }
   </div>
 </div>

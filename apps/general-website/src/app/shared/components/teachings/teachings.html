@@ -1,12 +1,22 @@
 <div class="teachings-container container shared-page-padding">
-  <div class="h4 mt-4 mb-4 text-center title-display">Masomo mbalimbali</div>
+  <div class="h4 mt-4 mb-4 text-center title-display" sty>
+    Masomo mbalimbali
+  </div>
   <div class="row">
     <div class="col-md-3 col-sm-12 col-sx-12">
       <app-teachings-summary-list></app-teachings-summary-list>
     </div>
     <div class="col-md-9 col-sm-12 col-sx-12">
       <div class="shared-border-left ps-4">
-        <div></div>
+        <div class="h5">
+          <span class="primary-color-text"> {{currentSermon()?.title}} </span>
+          <span class="ms-2">
+            <a
+              [href]="'https://wa.me/?text=Check%20this%20out%3A%20' + 'https://mwengemoravian.or.tz/#/services/teachings/' +currentSermon()?.id"
+              ><i class="pi pi-share-alt"></i
+            ></a>
+          </span>
+        </div>
         <p
           [innerHtml]="currentSermon()?.sermonInformation | formatMarkdownToHtml"
         ></p>
