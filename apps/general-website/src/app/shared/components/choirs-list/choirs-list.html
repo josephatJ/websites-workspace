@@ -1,0 +1,13 @@
+@for (choir of choirs(); track $index) {
+<div
+  class="choir-container"
+  [ngClass]="{'active-choir': currentChoir()?.id === choir.id }"
+  (click)="onSetCurrentChoir(choir)"
+>
+  <div class="h5 heading">{{choir?.name}}</div>
+  <!-- <div class="h6">
+    <span class="text-muted">Tarehe: </span>{{choir?.startDate | date}}
+  </div> -->
+  <p>{{choir?.description}}</p>
+</div>
+}

@@ -1,14 +1,14 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { SharedGeneralServiceAndState } from '../../services/general-state.service';
-import { ChoirsList } from '../choirs-list/choirs-list';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-choirs',
-  imports: [ChoirsList],
-  templateUrl: './choirs.html',
-  styleUrl: './choirs.css',
+  selector: 'app-choirs-list',
+  imports: [CommonModule],
+  templateUrl: './choirs-list.html',
+  styleUrl: './choirs-list.scss',
 })
-export class Choirs implements OnInit {
+export class ChoirsList implements OnInit {
   private generalStateService = inject(SharedGeneralServiceAndState);
   choirs = this.generalStateService.choirs;
   currentChoir = this.generalStateService.currentChoir;
@@ -28,5 +28,9 @@ export class Choirs implements OnInit {
           },
         });
     }
+  }
+
+  onSetCurrentChoir(choir: any) {
+    this.generalStateService.setCurrentChoir(choir);
   }
 }

@@ -74,6 +74,15 @@ export class SharedGeneralServiceAndState {
   private _churchUnions = signal<any[]>([]);
   churchUnions = this._churchUnions.asReadonly();
 
+  private _choirs = signal<any[]>([]);
+  choirs = this._choirs.asReadonly();
+
+  private _currentChoir = signal<any>(null);
+  currentChoir = this._currentChoir.asReadonly();
+
+  private _songs = signal<any[]>([]);
+  songs = this._songs.asReadonly();
+
   updateSocialMedia(socialMedia: any[]) {
     this._socialMedia.set(socialMedia);
   }
@@ -160,6 +169,18 @@ export class SharedGeneralServiceAndState {
 
   updateChurchUnions(churchUnions: any[]) {
     this._churchUnions.set(churchUnions);
+  }
+
+  updateChoirs(choirs: any[]) {
+    this._choirs.set(choirs);
+  }
+
+  setCurrentChoir(choir: any) {
+    this._currentChoir.set(choir);
+  }
+
+  updateSongs(songs: any[]) {
+    this._songs.set(songs);
   }
 
   loadData(link: string): Observable<any> {
