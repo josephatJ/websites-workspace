@@ -10,3 +10,7 @@
 ::ng-deep .p-card-body {
   gap: 0 !important;
 }
+
+img {
+  object-fit: cover !important;
+}
