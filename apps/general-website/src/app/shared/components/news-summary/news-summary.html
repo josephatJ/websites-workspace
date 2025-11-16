@@ -2,7 +2,7 @@
 
 <div
   class="news-container"
-  [ngClass]="{'active-event': currentNews()?.id === news.id }"
+  [ngClass]="{'active-news': currentNews()?.id === news.id }"
   (click)="onSetCurrentNews(news)"
 >
   <div class="h5 heading">{{news?.title}}</div>

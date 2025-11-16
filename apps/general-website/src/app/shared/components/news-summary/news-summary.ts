@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-news-summary',
   imports: [CommonModule],
   templateUrl: './news-summary.html',
-  styleUrl: './news-summary.css',
+  styleUrl: './news-summary.scss',
 })
 export class NewsSummary {
   private generalStateService = inject(SharedGeneralServiceAndState);
