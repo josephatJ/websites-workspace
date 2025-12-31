@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { NewsSummary } from '../news-summary/news-summary';
 import { SharedGeneralServiceAndState } from '../../services/general-state.service';
 import { FormatMarkdownToHtmlPipe } from '../../pipes/format-markdown-to-html-pipe';
+import { orderBy } from 'lodash';
 
 @Component({
   selector: 'app-news-container',
@@ -20,6 +21,7 @@ export class NewsContainer implements OnInit {
         .loadData(`items/news?fields=*,photos.*`)
         .subscribe({
           next: (news) => {
+            news = orderBy(news, ['releaseDate'], ['desc']);
             this.generalStateService.updateNews(news);
             this.generalStateService.setCurrentNews(news[0]);
           },

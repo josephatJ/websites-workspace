@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { SharedGeneralServiceAndState } from '../../services/general-state.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { orderBy } from 'lodash';
 
 @Component({
   selector: 'app-teachings-summary-list',
@@ -19,6 +20,7 @@ export class TeachingsSummaryList implements OnInit {
     if (this.teachings()?.length === 0) {
       this.generalStateService.loadData(`items/sermons`).subscribe({
         next: (teachings) => {
+          teachings = orderBy(teachings, ['dateOfRelease'], ['desc']);
           this.generalStateService.updateTeachings(teachings);
         },
       });

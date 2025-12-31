@@ -3,6 +3,7 @@ import { SharedGeneralServiceAndState } from '../../services/general-state.servi
 import { TeachingsSummaryList } from '../teachings-summary-list/teachings-summary-list';
 import { FormatMarkdownToHtmlPipe } from '../../pipes/format-markdown-to-html-pipe';
 import { CommonModule } from '@angular/common';
+import { orderBy } from 'lodash';
 
 @Component({
   selector: 'app-teachings',
@@ -20,8 +21,10 @@ export class Teachings implements OnInit {
     if (this.teachings()?.length === 0) {
       this.generalStateService.loadData(`items/sermons`).subscribe({
         next: (teachings) => {
+          teachings = orderBy(teachings, ['dateOfRelease'], ['desc']);
           this.generalStateService.updateTeachings(teachings);
           if (this.id && this.id != 'teachings') {
+            // TODO: Move this logic to a helper at the point where teachings or sermons are loaded. The base url should also be configured somewhere
             const currentSermon = teachings?.find(
               (sermon: any) => sermon?.id === this.id
             );
