@@ -3,9 +3,6 @@
     Masomo mbalimbali
   </div>
   <div class="row">
-    <div class="col-md-3 col-sm-12 col-sx-12">
-      <app-teachings-summary-list></app-teachings-summary-list>
-    </div>
     <div class="col-md-9 col-sm-12 col-sx-12">
       <div class="shared-border-left ps-4">
         <div class="h5">
@@ -20,6 +17,9 @@
           [innerHtml]="currentSermon()?.sermonInformation | formatMarkdownToHtml"
         ></p>
       </div>
+    </div>
+    <div class="col-md-3 col-sm-12 col-sx-12">
+      <app-teachings-summary-list></app-teachings-summary-list>
     </div>
   </div>
 </div>
