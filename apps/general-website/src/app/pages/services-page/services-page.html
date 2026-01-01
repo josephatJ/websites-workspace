@@ -1,6 +1,13 @@
 <div>
   <app-shared-pages-welcome-container
-    [currentPathName]="'Ibada na Huduma'"
-    [pageName]="'Ibada zetu na Huduma mbalimbali'"
+    [currentPathName]="'Ibada na Masomo'"
+    [pageName]="'Ibada zetu na Masomo mbalimbali'"
   ></app-shared-pages-welcome-container>
+  <div>
+    @if(category()=== 'worshipSessions') {
+    <app-worship-sessions></app-worship-sessions>
+    } @if(category()=== 'teachings' || category()=== 'sermons') {
+    <app-teachings [id]="uuid"></app-teachings>
+    }
+  </div>
 </div>

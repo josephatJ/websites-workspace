@@ -1,0 +1,15 @@
+<div class="galleria-container shared-page-padding">
+  @for (item of galleria(); track $index) {
+  <div>
+    @for (photo of item?.photos; track $index) {
+    <p-image
+      [src]="'../../../assets/'+ photo?.directus_files_id"
+      alt="Image"
+      width="310"
+      height="auto"
+      [preview]="true"
+    />
+    }
+  </div>
+  }
+</div>

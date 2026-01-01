@@ -1,12 +1,16 @@
 <p-menubar [model]="items" class="sticky-top custom-menu-bar">
   <ng-template #start>
-    <img src="assets/images/logo.png" style="height: 65px" alt="" />
+    <img
+      [src]="sanitize('../../../assets/' + introduction()?.logo)"
+      style="height: 65px"
+      alt="LOGO"
+    />
   </ng-template>
   <ng-template #item let-item let-root="root">
     <a
       pRipple
       class="flex items-center p-menubar-item-link"
-      [ngClass]="(item?.routerLink === currentRoutePath() || (item?.routerLink?.length > 0 && currentRoutePath() && currentRoutePath().indexOf(item?.routerLink) >= 0)) ? 'active-link': ''"
+      [ngClass]="{'active-link' : (item?.routerLink === currentRoutePath() || (item?.routerLink?.length > 0 && currentRoutePath() && currentRoutePath().indexOf(item?.routerLink) >= 0)), 'donation-button': item?.routerLink ==='donation'}"
     >
       <span>{{ item.label }}</span>
       @if (item.items) {

@@ -1,15 +1,66 @@
 <div class="container-fluid footer-container">
   <div class="row footer-summary-container">
-    <div class="col-md-4 col-sm-12 col-sx-12"></div>
-    <div class="col-md-2 col-sm-12 col-sx-12"></div>
-    <div class="col-md-2 col-sm-12 col-sx-12"></div>
+    <div class="col-md-4 col-sm-12 col-sx-12 about-church-and-address-summary">
+      <!-- <img height="120" [src]="'../../../assets/' + introduction()?.logo" /> -->
+      <div class="about-us">
+        <div class="h5 mt-4 mb-4"><b>Kuhusu Sisi</b></div>
+        <p>{{introduction()?.churchName}}</p>
+        <p>{{introduction()?.district}}</p>
+        <p>{{introduction()?.diocese}}</p>
+        <hr />
+        <p>
+          <a href="mailto:{{introduction()?.emailAddress}}">
+            <i class="pi pi-send"></i
+            ><span class="ms-2"> {{introduction()?.emailAddress}} </span>
+          </a>
+        </p>
+        <p>
+          <i class="pi pi-phone"></i>
+          @for (phoneNumber of phoneNumbers(); track $index) {
+          <span class="ms-2">
+            <a href="tel:{{phoneNumber?.phone}}"> {{phoneNumber?.phone}} </a>
+          </span>
+          }
+        </p>
+        <p><i class="pi pi-location"></i>{{introduction()?.addressLocation}}</p>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-12 col-sx-12">
+      <div class="userful-links">
+        <div class="h5 mt-4 mb-4"><b>Safu Muhimu</b></div>
+        <p>
+          <a>Ibada zetu</a>
+        </p>
+        <p>
+          <a>Masomo mbalimbali</a>
+        </p>
+        <p>
+          <a>Matukio</a>
+        </p>
+        <p>
+          <a>Taarifa</a>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-12 col-sx-12">
+      <div class="userful-links">
+        <div class="h5 mt-4 mb-4"><b>Safu zingine</b></div>
+        <p>
+          <a>Changia (Donation)</a>
+        </p>
+        <p>
+          <a>Viongozi wetu</a>
+        </p>
+      </div>
+    </div>
     <div class="col-md-4 col-sm-12 col-sx-12"></div>
   </div>
   <div class="row footer-botton-banner">
-    <div class="col-md-4 col-sm-12 col-sx-12">
-      <p class="text-left">Copyright © Mwenge Moravian Tanzania - {{ year}}</p>
+    <div class="col-md-8 col-sm-12 col-sx-12">
+      <p class="text-left copyright mt-2">
+        {{introduction()?.copyright}} - {{ year}}
+      </p>
     </div>
-    <div class="col-md-4 col-sm-12 col-sx-12"></div>
     <div class="col-md-4 col-sm-12 col-sx-12">
       <app-social-media-display-list></app-social-media-display-list>
     </div>

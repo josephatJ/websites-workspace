@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="contacts-us-container">
   <div class="welcome-container">
     <app-shared-pages-welcome-container
       [currentPathName]="'Mawasiliano'"
@@ -6,6 +6,28 @@
     ></app-shared-pages-welcome-container>
   </div>
   <div class="container">
+    <div class="h4 mt-4 mb-4 text-center title-display">Wasiliana nasi</div>
+    <div class="text-center">
+      <b class="primary-color-text"> Kwa njia ya Simu: </b> @for (phoneNumber of
+      phoneNumbers(); track $index) {
+      <p>
+        <a [href]="'tel:' +phoneNumber?.phone">
+          <i class="pi pi-phone mr-1"></i>
+          {{phoneNumber?.phone}} </a
+        >| {{phoneNumber?.category}}
+      </p>
+      }
+    </div>
+    <div class="text-center">
+      <b class="primary-color-text"> Barua pepe: </b>
+
+      <p>
+        <i class="pi pi-send mr-1"></i>
+        <a [href]="'mailto:'+introduction()?.emailAddress"
+          >{{introduction()?.emailAddress}}
+        </a>
+      </p>
+    </div>
     <app-contacts-us-form></app-contacts-us-form>
   </div>
   <div>

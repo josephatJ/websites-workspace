@@ -1,10 +1,62 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SharedIntroductionSummary } from '../shared-introduction-summary/shared-introduction-summary';
+import { CarouselModule } from 'primeng/carousel';
+import { SharedGeneralServiceAndState } from '../../services/general-state.service';
+import { ButtonModule } from 'primeng/button';
+import { TagModule } from 'primeng/tag';
+import { CommonModule } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
+import { orderBy } from 'lodash';
 
 @Component({
   selector: 'app-home-welcome-container',
-  imports: [SharedIntroductionSummary],
+  imports: [
+    CommonModule,
+    SharedIntroductionSummary,
+    CarouselModule,
+    ButtonModule,
+    TagModule,
+  ],
   templateUrl: './home-welcome-container.html',
   styleUrl: './home-welcome-container.css',
 })
-export class HomeWelcomeContainer {}
+export class HomeWelcomeContainer implements OnInit {
+  private generalStateService = inject(SharedGeneralServiceAndState);
+  homeWelcomeDisplayList = this.generalStateService.homeWelcomeDisplayList;
+  responsiveOptions: any[] | undefined;
+
+  constructor(private sanitizer: DomSanitizer) {}
+
+  sanitize(img: string) {
+    return this.sanitizer.bypassSecurityTrustUrl(img);
+  }
+
+  ngOnInit(): void {
+    if (this.homeWelcomeDisplayList()?.length === 0) {
+      this.generalStateService
+        .loadData(`items/featuredEvents?fields=*`)
+        .subscribe({
+          next: (featuredEvents) => {
+            this.generalStateService.updateHomeWelcomeDisplayList(
+              orderBy(featuredEvents, ['order'], ['asc'])
+            );
+            this.responsiveOptions = [
+              {
+                breakpoint: '1200px',
+                numVisible: 1,
+                numScroll: 3,
+              },
+            ];
+          },
+        });
+    } else {
+      this.responsiveOptions = [
+        {
+          breakpoint: '1200px',
+          numVisible: 1,
+          numScroll: this.homeWelcomeDisplayList()?.length,
+        },
+      ];
+    }
+  }
+}

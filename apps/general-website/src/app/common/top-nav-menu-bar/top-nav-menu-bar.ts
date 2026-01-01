@@ -6,12 +6,14 @@ import { MegaMenuModule } from 'primeng/megamenu';
 import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
 import { SharedPagesService } from '../../shared/services/pages-state.service';
+import { SharedGeneralServiceAndState } from '../../shared/services/general-state.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-top-nav-menu-bar',
   imports: [CommonModule, MegaMenuModule, MenuModule, MenubarModule],
   templateUrl: './top-nav-menu-bar.html',
-  styleUrl: './top-nav-menu-bar.css',
+  styleUrl: './top-nav-menu-bar.scss',
 })
 export class TopNavMenuBar implements OnInit {
   private router = inject(Router);
@@ -19,6 +21,10 @@ export class TopNavMenuBar implements OnInit {
   private pagesStateService = inject(SharedPagesService);
   pages = this.pagesStateService.pages;
   currentRoutePath = this.pagesStateService.currentPagePath;
+  private generalStateService = inject(SharedGeneralServiceAndState);
+  introduction = this.generalStateService.introduction;
+
+  constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     this.items = this.pages().map((page: any) => {
@@ -136,6 +142,10 @@ export class TopNavMenuBar implements OnInit {
     //     },
     //   },
     // ];
+  }
+
+  sanitize(img: string) {
+    return this.sanitizer.bypassSecurityTrustUrl(img);
   }
 
   onChangeRoute(path: string): void {

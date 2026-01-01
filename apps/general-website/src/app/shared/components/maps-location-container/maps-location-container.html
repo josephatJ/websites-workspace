@@ -1,1 +1,29 @@
-<p>maps-location-container works!</p>
+<div class="maps-page">
+  <google-map
+    height="400px"
+    width="100%"
+    [center]="center"
+    [zoom]="zoom"
+    [options]="mapOptions"
+  >
+  </google-map>
+  <!-- <google-map
+    height="400px"
+    width="100%"
+    [center]="center"
+    [zoom]="zoom"
+    [options]="mapOptions"
+    (mapClick)="updateLocation($event)"
+  >
+    <map-marker
+      *ngIf="markerPosition"
+      [position]="markerPosition"
+      [options]="{ draggable: true }"
+      (mapDragEnd)="updateLocation($event)"
+    ></map-marker>
+  </google-map>
+  <div class="bottom-bar">
+    <div class="coords"><strong>Uelekeo:</strong> {{ locationText }}</div>
+    <button (click)="locateMe()" class="btn">Bonyeza hapa kuelekea</button>
+  </div> -->
+</div>

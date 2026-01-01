@@ -1,0 +1,34 @@
+<div class="about-us-summary-container container">
+  <div class="shared-page-padding">
+    <div class="row">
+      <div class="col-md-5 col-sm-4 col-sx-12">
+        @for (photo of aboutUs()?.photos; track $index) {
+        <span class="text-center">
+          <div>
+            <img
+              height="200"
+              [src]="'../../../assets/' + photo?.directus_files_id"
+            />
+          </div>
+        </span>
+        }
+      </div>
+      <div class="col-md-7 col-sm-8 col-sx-12">
+        <div class="about-tag tag-display">
+          <i class="pi pi-plus"></i> {{aboutUs()?.tag}}
+        </div>
+        <div class="about-title title-display">{{aboutUs()?.title}}</div>
+        <p class="blockquote">{{aboutUs()?.description}}</p>
+
+        <div class="vision mt-4">
+          <div class="header">{{vision()?.title}}</div>
+          <p class="info">{{vision()?.description}}</p>
+        </div>
+        <div class="mission mt-4">
+          <div class="header">{{mission()?.title}}</div>
+          <p class="info">{{mission()?.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,11 @@
-<div class="container-fluid">
+<div>
   <div>
     <app-shared-pages-welcome-container
       [currentPathName]="'Habari na Matukio'"
       [pageName]="'Habari na Matukio yetu'"
     ></app-shared-pages-welcome-container>
   </div>
-  <div class="page-contents-container mt-4 mb-4">
+  <div class="page-contents-container">
     @if (category() === 'news') {
     <app-news-container></app-news-container>
     } @if (category() === 'events') {

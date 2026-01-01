@@ -1,0 +1,12 @@
+.news-container {
+  padding: 4px 4px 8px 16px;
+}
+.news-container:hover,
+.active-news {
+  border-left: solid 5px var(--primary-color);
+  cursor: pointer;
+  .heading {
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+}

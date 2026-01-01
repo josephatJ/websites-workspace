@@ -1,1 +1,22 @@
-<p>others-page works!</p>
+<div>
+  @if (category() =='pictures') {
+  <app-galleria></app-galleria>
+  } @if (category() =='choirs') {
+  <app-choirs></app-choirs>
+  } @if (category() =='councilOfElders') {
+  <app-council-of-elders></app-council-of-elders>
+  } @if (category() =='churchUnions') {
+  <app-church-unions></app-church-unions>
+  } @if (category() =='leaders') {
+
+  <div>
+    <app-shared-pages-welcome-container
+      [currentPathName]="'Viongozi mbalimbali'"
+      [pageName]="'Viongozi mbalimbali wa Usharika wa Mwenge Moravian'"
+    ></app-shared-pages-welcome-container>
+  </div>
+  <div class="page-contents-container container-fluid">
+    <app-leaders-list></app-leaders-list>
+  </div>
+  }
+</div>

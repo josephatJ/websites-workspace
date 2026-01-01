@@ -1,1 +1,4 @@
-<p>shared-introduction-summary works!</p>
+<app-person-diplay-screen
+  [imageReference]="introduction()?.photo"
+></app-person-diplay-screen>
+<p>{{introduction()?.introductionSummary}}</p>

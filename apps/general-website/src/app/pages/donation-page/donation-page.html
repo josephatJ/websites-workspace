@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="welcome-page-container">
+    <app-shared-pages-welcome-container
+      [currentPathName]="donationInformation()?.welcomeTitle"
+      [pageName]="donationInformation()?.welcomeTitleDescription"
+    ></app-shared-pages-welcome-container>
+  </div>
+  <div class="donation container">
+    <app-donation></app-donation>
+    <p-scrolltop
+      target="parent"
+      [threshold]="100"
+      icon="pi pi-arrow-up"
+      [buttonProps]="{ severity: 'secondary', raised: true, rounded: true }"
+    />
+  </div>
+</div>

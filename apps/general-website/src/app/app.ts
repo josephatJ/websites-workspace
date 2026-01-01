@@ -47,7 +47,7 @@ export class App implements OnInit {
               ...page,
               items:
                 page?.routePath?.indexOf('departments') === 0
-                  ? response?.departments
+                  ? orderBy(response?.departments, ['order'], ['asc'])
                   : response?.subPages?.filter(
                       (subPage: any) => subPage?.pageUuid === page?.id
                     ),
@@ -56,5 +56,44 @@ export class App implements OnInit {
           this.pagesState.updatePages(orderBy(pages, ['order'], ['asc']));
         },
       });
+
+    this.generalStateService.loadData(`items/introduction`).subscribe({
+      next: (introduction) => {
+        this.generalStateService.updateIntroduction(introduction);
+      },
+    });
+    this.generalStateService.loadData(`items/phoneNumbers`).subscribe({
+      next: (phoneNumbers) => {
+        this.generalStateService.updatePhoneNumbers(
+          orderBy(phoneNumbers, ['priority', 'order'], ['asc', 'asc'])
+        );
+      },
+    });
+
+    this.generalStateService.loadData(`items/bankAccounts`).subscribe({
+      next: (bankAccounts) => {
+        this.generalStateService.updateBankAccounts(
+          orderBy(bankAccounts, ['order'], ['asc'])
+        );
+      },
+    });
+
+    this.generalStateService.loadData(`items/donationInformation`).subscribe({
+      next: (donationInformation) => {
+        this.generalStateService.updateDonationInformation(donationInformation);
+      },
+    });
+
+    this.generalStateService.loadData(`items/vision`).subscribe({
+      next: (vision) => {
+        this.generalStateService.updateVision(vision);
+      },
+    });
+
+    this.generalStateService.loadData(`items/mission`).subscribe({
+      next: (mission) => {
+        this.generalStateService.updateMission(mission);
+      },
+    });
   }
 }

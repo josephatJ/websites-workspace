@@ -1,0 +1,35 @@
+<div class="leaders-container shared-page-padding">
+  <div class="h4 mt-4 mb-2 text-center title-display">Viongozi wa Ushirika</div>
+  <div class="row">
+    @for (leader of leaders(); track $index) {
+    <div class="col-md-3 col-sm-12 col-sx-12">
+      <p-card class="mb-2" [style]="{overflow: 'hidden', margin: '0 0 8px 0' }">
+        <ng-template #header>
+          <img
+            height="300"
+            alt="{{leader?.names}}"
+            class="w-full w-100"
+            [src]="'../../../assets/'+leader?.photo"
+          />
+        </ng-template>
+        <ng-template #title>
+          <b class="text-muted">{{leader?.generalTitle}}</b> {{leader?.names}}
+        </ng-template>
+        <ng-template #subtitle>
+          <p class="m-0">{{leader?.description}}</p>
+          <p class="m-0">{{leader?.phoneNumbers}}</p>
+        </ng-template>
+        <ng-template #footer>
+          <div class="flex gap-4 mt-1">
+            <!-- <p-button label="Cancel" severity="secondary" class="w-full" [outlined]="true" styleClass="w-full" />
+            <p-button label="Save" class="w-full" styleClass="w-full" /> -->
+            <a pButton size="small" [href]="leader?.youtubeLink" target="_blank"
+              ><i class="pi pi-youtube"></i
+            ></a>
+          </div>
+        </ng-template>
+      </p-card>
+    </div>
+    }
+  </div>
+</div>

@@ -1,7 +1,59 @@
-<div class="container-fluid home-welcome-container">
+<div class="home-welcome-container">
   <div class="row">
     <div class="col-md-10 col-sm-12 col-sx-12">
-      <p>home-welcome-container works!</p>
+      <div>
+        <!-- {{homeWelcomeDisplayList().length}} {{responsiveOptions | json}} -->
+        <!-- {{homeWelcomeDisplayList() | json}} -->
+        <p-carousel
+          [value]="homeWelcomeDisplayList()"
+          [numVisible]="1"
+          [numScroll]="1"
+          [circular]="true"
+          [responsiveOptions]="responsiveOptions"
+          autoplayInterval="3000"
+        >
+          <ng-template let-event #item>
+            <div class="border-surface rounded-border mt-2">
+              <div class="mb-0">
+                <div class="relative mx-auto">
+                  <img
+                    [src]="sanitize('../../../assets/'+ event.picture)"
+                    [alt]="event.title"
+                    class="w-full rounded-border scrolling-image"
+                  />
+                  <!-- <p-tag
+                    [value]="event?.title"
+                    severity="secondary"
+                    class="absolute dark:!bg-surface-900"
+                    [ngStyle]="{ 'left.px': 5, 'top.px': 5 }"
+                  /> -->
+                  @if (event?.description) {
+                  <p-tag
+                    [value]="event?.description"
+                    severity="secondary"
+                    class="absolute dark:!bg-surface-900"
+                  />
+                  }
+                </div>
+              </div>
+              <!-- <div class="mb-4 font-medium">{{ event.name }}</div>
+              <div class="flex justify-between items-center">
+                <div class="mt-0 font-semibold text-xl">
+                  {{ '$' + event.price }}
+                </div>
+                <span>
+                  <p-button
+                    icon="pi pi-heart"
+                    severity="secondary"
+                    [outlined]="true"
+                  />
+                  <p-button icon="pi pi-shopping-cart" styleClass="ml-2" />
+                </span>
+              </div> -->
+            </div>
+          </ng-template>
+        </p-carousel>
+      </div>
     </div>
     <div class="col-md-2 col-sm-12 col-sx-12 border-left">
       <app-shared-introduction-summary></app-shared-introduction-summary>
