@@ -37,8 +37,13 @@ export class HomeWelcomeContainer implements OnInit {
         .loadData(`items/featuredEvents?fields=*`)
         .subscribe({
           next: (featuredEvents) => {
+            console.log('featuredEvents', featuredEvents);
             this.generalStateService.updateHomeWelcomeDisplayList(
-              orderBy(featuredEvents, ['order'], ['asc'])
+              orderBy(
+                featuredEvents,
+                ['order', 'date_created'],
+                ['asc', 'desc']
+              )
             );
             this.responsiveOptions = [
               {
